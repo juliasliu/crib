@@ -1,0 +1,3 @@
+[submodule "crib"]
+	path = crib
+	url = /crib
