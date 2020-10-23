@@ -6,7 +6,9 @@ import * as React from 'react';
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import ChoresScreen from '../screens/ChoresScreen';
-import FridgeScreen from '../screens/FridgeScreen';
+import FridgeScreen from '../screens/Fridge/FridgeScreen';
+import InventoryAddScreen from '../screens/Fridge/InventoryAddScreen';
+import ListAddScreen from '../screens/Fridge/ListAddScreen';
 import HomeScreen from '../screens/HomeScreen';
 import FinancesScreen from '../screens/FinancesScreen';
 import ProfileScreen from '../screens/ProfileScreen';
@@ -159,6 +161,16 @@ function FridgeNavigator() {
       <FridgeStack.Screen
         name="FridgeScreen"
         component={FridgeScreen}
+        options={{ headerTitle: 'Fridge' }}
+      />
+      <FridgeStack.Screen
+        name="InventoryAddScreen"
+        component={InventoryAddScreen}
+        options={{ headerTitle: 'Fridge' }}
+      />
+      <FridgeStack.Screen
+        name="ListAddScreen"
+        component={ListAddScreen}
         options={{ headerTitle: 'Fridge' }}
       />
     </FridgeStack.Navigator>

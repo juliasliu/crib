@@ -1,12 +1,16 @@
 import * as React from 'react';
-import { StyleSheet, Button, TouchableOpacity} from 'react-native';
+import { Text, View, StyleSheet, Button, TouchableOpacity} from 'react-native';
 
 import { FlatList} from 'react-native-gesture-handler';
 
-import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View  } from '../components/Themed';
+import EditScreenInfo from '../../components/EditScreenInfo';
+import {} from '../../components/Themed';
+import Colors from '../../constants/Colors';
+import Layout from '../../constants/Layout';
 
-export default function TabTwoScreen() {
+
+
+export default function TabTwoScreen({ navigation }) {
   const renderInvItem = ({ item }) => (
     <InvItem name={item.name} exp_date={item.exp_date} quantity={item.quantity} units={item.units}/>
   );
@@ -21,7 +25,7 @@ export default function TabTwoScreen() {
         <Text style={styles.title}>Inventory</Text>
         <TouchableOpacity
         style={styles.addItemButton}
-        onPress={() =>console.log("Quantity of " + name + "in inventory reduced by 1")}
+        onPress={() => navigation.navigate('InventoryAddScreen')}
       >
           <Text style ={styles.addItemButtonText}>+</Text>
       </TouchableOpacity>
@@ -38,7 +42,7 @@ export default function TabTwoScreen() {
         <Text style={styles.title}>Shopping List</Text>
         <TouchableOpacity
         style={styles.addItemButton}
-        onPress={() =>console.log("Quantity of " + name + "in inventory reduced by 1")}
+        onPress={() => navigation.navigate('ListAddScreen')}
       >
           <Text style ={styles.addItemButtonText}>+</Text>
       </TouchableOpacity>
@@ -114,7 +118,7 @@ const ListItem = ({ name, requester, quantity, units}) => (
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#1cad61',
+    backgroundColor: Colors.green,
     flex:1,
     flexDirection: 'column',
     alignItems: 'center',
@@ -122,15 +126,16 @@ const styles = StyleSheet.create({
   },
 
   flatList: {
-    borderRadius: 10,
+    borderRadius: Layout.borderRadius,
     alignSelf: "stretch",
-    backgroundColor: '#FFF',
-    elevation: 100,
+    backgroundColor: 'white',
+    marginHorizontal: 10
   },
   
   title: {
     fontSize: 22,
     fontWeight: 'bold',
+    color: 'white',
     margin: 20,
     flex: 3,
   },
@@ -140,7 +145,6 @@ const styles = StyleSheet.create({
     width: '80%',
   },
   item: {
-    backgroundColor: '#FFF',
     marginHorizontal: 10,
     alignItems: 'center',
     alignSelf: 'stretch',
@@ -148,7 +152,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     height: 100,
     flex: 1,
-    borderColor: '#f1f1f1',
+    borderColor: Colors.lightGray,
     borderBottomWidth: 1,
   },
 
@@ -159,8 +163,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     flex:1,
     textAlign: 'left',
-    backgroundColor: '#FFF',
-
   },
 
   sectionTitleContainer: {
@@ -168,16 +170,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignSelf: 'stretch',
-    backgroundColor: 'rgba(0, 0, 0, 0)',
     },
 
   addItemButton: {
     flex: 1,
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#DDDDDD",
+    backgroundColor: Colors.gray,
     alignSelf: 'stretch',
-    borderRadius: 10,
+    borderRadius: Layout.borderRadius,
     margin: 10,
   },
   
@@ -187,34 +188,34 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     textAlignVertical: 'center',
+    color: 'white',
     textShadowColor:'black',
     textShadowRadius:1,
+    
   },
 
   quantityContainer: {
     alignItems: 'center',
     flexDirection: 'row',
     flex:1,
-    backgroundColor: '#FFF',
     borderWidth: 1,
-    borderRadius: 10,
-    borderColor: "#DDDDDD",
+    borderRadius: Layout.borderRadius,
+    borderColor: Colors.gray,
     marginVertical: 15,
   },
 
   itemLabelText: {
-    color: '#1cad61',
+    color: Colors.green,
     fontSize: 25,
     fontWeight: 'bold',
   },
 
   quantityTextContainer: {
     flex:1,
-    backgroundColor: '#FFF',
   },
 
   quantityText: {
-    color: '#1cad61',
+    color: Colors.green,
     fontSize: 25,
     fontWeight: 'bold',
     flex:3,
@@ -223,7 +224,7 @@ const styles = StyleSheet.create({
   },
 
   unitText: {
-    color: '#1cad61',
+    color: Colors.green,
     fontSize: 15,
     fontWeight: 'bold',
     flex:2,
@@ -241,10 +242,10 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#DDDDDD",
+    backgroundColor: Colors.gray,
     alignSelf: 'stretch',
-    borderTopLeftRadius: 10,
-    borderBottomLeftRadius: 10
+    borderTopLeftRadius: Layout.borderRadius,
+    borderBottomLeftRadius: Layout.borderRadius
 
   },
 
@@ -252,10 +253,10 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#DDDDDD",
+    backgroundColor: Colors.gray,
     alignSelf: 'stretch',
-    borderTopRightRadius: 10,
-    borderBottomRightRadius: 10
+    borderTopRightRadius: Layout.borderRadius,
+    borderBottomRightRadius: Layout.borderRadius
   },
 
   quantityButtonText: {
@@ -264,6 +265,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     textAlignVertical: 'center',
+    color: 'white',
     textShadowColor:'black',
     textShadowRadius:1,
   },

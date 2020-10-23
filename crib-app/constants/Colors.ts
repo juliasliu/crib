@@ -1,7 +1,8 @@
-const green = '#5DB075';
+const green = '#1cad61';
 const orange = '#E46A01';
 const yellow = '#ECDC00';
-const gray = '#888';
+const lightGray = '#f1f1f1';
+const gray = '#DDDDDD';
 
 const tintColorLight = green;
 const tintColorDark = '#fff';
@@ -11,6 +12,7 @@ export default {
   orange: orange,
   yellow: yellow,
   gray: gray,
+  lightGray: lightGray,
   light: {
     text: '#000',
     background: '#fff',
