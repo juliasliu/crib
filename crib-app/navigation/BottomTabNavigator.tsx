@@ -6,7 +6,9 @@ import * as React from 'react';
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import ChoresScreen from '../screens/ChoresScreen';
-import FridgeScreen from '../screens/FridgeScreen';
+import FridgeScreen from '../screens/Fridge/FridgeScreen';
+import InventoryAddScreen from '../screens/Fridge/InventoryAddScreen';
+import ListAddScreen from '../screens/Fridge/ListAddScreen';
 import HomeScreen from '../screens/HomeScreen';
 import FinancesScreen from '../screens/FinancesScreen';
 import ProfileScreen from '../screens/ProfileScreen';
@@ -114,11 +116,8 @@ function MyTabBar({ state, descriptors, navigation }) {
           {
             route.name == "Home" ? <HomeButton navigation={navigation} /> :
             (
-              <View style={{ flexDirection: 'column', alignItems: 'center', padding: 5 }}>
-                <TabBarIcon name={icon} color={isFocused ? Colors.green : Colors.gray } />
-                <Text style={{ color: isFocused ? Colors.green : Colors.gray, fontSize: 12 }}>
-                  {label}
-                </Text>
+              <View style={{ flexDirection: 'column', alignItems: 'center', padding: 10, }}>
+                <TabBarIcon name={icon} color={isFocused ? Colors.green : Colors.gray } size={30} />
               </View>
             )
           }
@@ -161,6 +160,16 @@ function FridgeNavigator() {
         component={FridgeScreen}
         options={{ headerTitle: 'Fridge' }}
       />
+      <FridgeStack.Screen
+        name="InventoryAddScreen"
+        component={InventoryAddScreen}
+        options={{ headerTitle: 'Fridge' }}
+      />
+      <FridgeStack.Screen
+        name="ListAddScreen"
+        component={ListAddScreen}
+        options={{ headerTitle: 'Fridge' }}
+      />
     </FridgeStack.Navigator>
   );
 }
@@ -174,6 +183,23 @@ function HomeNavigator() {
         name="HomeScreen"
         component={HomeScreen}
         options={{ headerTitle: 'Home' }}
+      />
+      <HomeStack.Screen
+        name="ProfileScreen"
+        component={ProfileScreen}
+        options={{
+          title: 'Profile',
+           headerStyle: {
+             backgroundColor: Colors.green,
+             elevation: 0,
+             shadowOpacity: 0,
+             borderBottomWidth: 0,
+           },
+           headerTintColor: '#fff',
+           headerTitleStyle: {
+             fontWeight: 'bold',
+           },
+       }}
       />
     </HomeStack.Navigator>
   );

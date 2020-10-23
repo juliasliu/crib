@@ -21,8 +21,6 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-import EditScreenInfo from '../components/EditScreenInfo';
-//import { Text, View } from '../components/Themed';
 import styles from '../styles/profile';
 
 const POINTS_DATA = [

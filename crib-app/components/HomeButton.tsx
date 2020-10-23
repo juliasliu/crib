@@ -3,6 +3,7 @@ import {Animated, TouchableHighlight, View} from "react-native";
 import Colors from '../constants/Colors';
 import Icon from '@expo/vector-icons/FontAwesome';
 const SIZE = 80;
+import mainStyles from '../styles/main';
 
 class HomeButton extends Component {
     mode = new Animated.Value(0);
@@ -61,14 +62,14 @@ class HomeButton extends Component {
                         onPress={() => {
                           this.props.navigation.navigate("Home");
                         }}
-                        style={{
+                        style={[mainStyles.homeButton, {
                             alignItems: 'center',
                             justifyContent: 'center',
                             width: SIZE / 2,
                             height: SIZE / 2,
                             borderRadius: SIZE / 4,
                             backgroundColor: Colors.green
-                        }}
+                        }]}
                     >
                         <Icon name="home" size={20} color="#F8F8F8"/>
                     </TouchableHighlight>
@@ -83,7 +84,7 @@ class HomeButton extends Component {
                     <TouchableHighlight
                         onPress={() => {
                         }}
-                        style={{
+                        style={[mainStyles.homeButton, {
                             position: 'absolute',
                             alignItems: 'center',
                             justifyContent: 'center',
@@ -91,7 +92,7 @@ class HomeButton extends Component {
                             height: SIZE / 2,
                             borderRadius: SIZE / 4,
                             backgroundColor: Colors.green
-                        }}
+                        }]}
                     >
                         <Icon name="camera" size={20} color="#F8F8F8"/>
                     </TouchableHighlight>
@@ -106,7 +107,7 @@ class HomeButton extends Component {
                     <TouchableHighlight
                         onPress={() => {
                         }}
-                        style={{
+                        style={[mainStyles.homeButton, {
                             position: 'absolute',
                             alignItems: 'center',
                             justifyContent: 'center',
@@ -114,7 +115,7 @@ class HomeButton extends Component {
                             height: SIZE / 2,
                             borderRadius: SIZE / 4,
                             backgroundColor: Colors.green
-                        }}
+                        }]}
                     >
                         <Icon name="plus" size={20} color="#F8F8F8"/>
                     </TouchableHighlight>
@@ -122,15 +123,14 @@ class HomeButton extends Component {
 
                 <TouchableHighlight
                     onPress={this.toggleView}
-                    underlayColor="#2882D8"
-                    style={{
+                    underlayColor={Colors.green}
+                    style={[mainStyles.homeButton, {
                         alignItems: 'center',
                         justifyContent: 'center',
                         width: SIZE,
                         height: SIZE,
                         borderRadius: SIZE / 2,
-                        backgroundColor: Colors.green
-                    }}
+                    }]}
                 >
                     <Animated.View style={{
                         transform: [

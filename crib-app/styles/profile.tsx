@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
   },
 
   infoTitle: {
-    color: '#1cad61',
+    color: Colors.green,
     fontSize: 25,
     fontWeight: 'bold'
    },
