@@ -8,6 +8,8 @@ const styles = StyleSheet.create({
   scroll: {
     backgroundColor: '#fff',
   },
+
+  // Home graphic
   homeGraphicContainer: {
     width: '100%',
     height: '50%',
@@ -15,7 +17,7 @@ const styles = StyleSheet.create({
   homeGraphic: {
     width: '100%',
     height: '100%',
-    backgroundColor: 'blue'
+    backgroundColor: Colors.darkGray,
   },
   homeGraphicButtons: {
     position: 'absolute',
@@ -23,63 +25,70 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between'
   },
+  homeGraphicButton: {
+      marginTop: 20,
+      marginHorizontal: 20,
+  },
 
-  //List styles
+  // List styles
   listContainer: {
     flex: 1,
     paddingTop: 0,
+    paddingHorizontal: 10,
     width: '100%',
-    backgroundColor: '#fff',
+    backgroundColor: Colors.backgroundWhite,
    },
    listHeader: {
      width: '100%',
      flexDirection: 'row',
      justifyContent: 'space-between',
-     padding: 20,
-    backgroundColor: Colors.green,
+     paddingHorizontal: 10,
+     paddingVertical: 20,
+   },
+   listTitle: {
+     fontSize: 20,
+     paddingVertical: 5,
+     fontWeight: 'bold',
+     color: Colors.darkGray,
    },
 
-   listRow: {
-    borderColor: '#f1f1f1',
-    borderBottomWidth: 1,
-    flexDirection: 'row',
-    padding: 20,
+  // Modal View
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22
   },
-  iconContainer: {
-    width: 50,
-    height: 50,
-    borderRadius: 50,
-  },
-
-  infoContainer: {
-    flex: 3,
-    paddingHorizontal: 10,
-    flexDirection: "column",
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
     },
-
-  timeContainer: {
-    flex:2,
-    flexDirection: "row",
-    alignItems: "baseline",
-    justifyContent: "flex-end"
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5
   },
-
-  infoTitle: {
-    color: '#333',
-    fontSize: 20,
-    fontWeight: 'bold'
-   },
-
-  infoItem: {
-    color: Colors.green,
-    textAlign: 'left',
-    fontSize: 14,
-    fontWeight: 'bold'
-   },
-  timeItem: {
-    color: Colors.gray,
-    fontSize: 14,
+  openButton: {
+    backgroundColor: "#F194FF",
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2
   },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center"
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center"
+  }
 });
 
 export default styles;

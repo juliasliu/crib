@@ -13,91 +13,119 @@ import {
   View,
   Button,
   TouchableOpacity,
+  Modal,
 } from 'react-native';
+
+import StyledButton from '../components/StyledButton';
+import UserItem from '../components/UserItem';
 
 import mainStyles from '../styles/main';
 import styles from '../styles/home';
 
 export default function HomeScreen({ navigation }) {
 
-  const picture = require('../assets/images/ramen.jpg');
+  let modalVisible = false;
+
+  const setModalVisible = (visible) => {
+    modalVisible = visible;
+  }
 
   const POINTS_DATA = [
     {
       name: 'Richardd Mao',
-      pts: "100",
-      time: '8 mins ago',
-      avatar: picture,
+      points: "100",
+      description: '8 mins ago',
+      avatar: require('../assets/images/ramen.jpg'),
     },
     {
       name: 'Robinn Chu',
-      pts: "50",
-      time: '2 hours ago',
-      avatar: picture,
+      points: "50",
+      description: '2 hours ago',
+      avatar: require('../assets/images/girl.jpg'),
     },
     {
       name: 'Kobee Oh',
-      pts: "30",
-      time: '10 weeks ago',
-      avatar: picture,
+      points: "30",
+      description: '10 weeks ago',
+      avatar: require('../assets/images/nature.jpg'),
     },
     {
       name: 'Juliaa Liu',
-      pts: "30",
-      time: '10 weeks ago',
-      avatar: picture,
+      points: "30",
+      description: '10 weeks ago',
+      avatar: require('../assets/images/silhouette.jpg'),
     },
   ];
 
-  const renderPointItem = ({item}) => (
-    <TouchableOpacity style={styles.listRow} onPress={() => navigation.navigate("Profile")}>
-      <Image
-        style={styles.iconContainer}
-        source={item.avatar}
-      />
-      <View style={styles.infoContainer}>
-        <Text style={styles.infoTitle}>{item.name}</Text>
-        <Text style={styles.infoItem}>{item.pts} pts</Text>
-      </View>
-      <View style={styles.timeContainer}>
-        <Text style={styles.timeItem}>{item.time}</Text>
-      </View>
-    </TouchableOpacity>
+  const renderUserItem = ({item}) => (
+    <UserItem name={item.name} points={item.points} avatar={item.avatar} description={item.description} navigation={navigation}/>
   )
 
   return (
     <View style={styles.container}>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+        }}
+      >
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>Hello World!</Text>
+
+            <TouchableOpacity
+              style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
+              onPress={() => {
+                setModalVisible(!modalVisible);
+              }}
+            >
+              <Text style={styles.textStyle}>Hide Modal</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
+
       <View style={styles.homeGraphicContainer}>
         <View style={styles.homeGraphic}></View>
         <View style={styles.homeGraphicButtons}>
-          <TouchableOpacity style={[mainStyles.iconButton, {marginHorizontal: 20}]}>
-            <Ionicons name="ios-chatbubbles" size={20} style={mainStyles.icon}></Ionicons>
-            <Text style={mainStyles.iconLabel}>Chat</Text>
-          </TouchableOpacity>
           <View>
-            <TouchableOpacity style={mainStyles.iconButton}>
-              <Ionicons name="ios-notifications" size={20} style={mainStyles.icon}></Ionicons>
-              <Text style={mainStyles.iconLabel}>Reminders</Text>
+            <TouchableOpacity
+              onPress={() => {
+                setModalVisible(true);
+              }}
+              style={[mainStyles.iconButton, styles.homeGraphicButton, mainStyles.greenButton]}>
+              <Ionicons name="ios-chatbubbles" size={20} style={mainStyles.icon}></Ionicons>
             </TouchableOpacity>
-            <TouchableOpacity style={mainStyles.iconButton}>
-              <Ionicons name="ios-list" size={20} style={mainStyles.icon}></Ionicons>
-              <Text style={mainStyles.iconLabel}>Tasks</Text>
+          </View>
+          <View>
+            <TouchableOpacity
+              onPress={() => {
+                setModalVisible(true);
+              }}
+              style={[mainStyles.iconButton, styles.homeGraphicButton, mainStyles.greenButton]}>
+              <Ionicons name="ios-notifications" size={20} style={mainStyles.icon}></Ionicons>
+            </TouchableOpacity>
+            <TouchableOpacity
+                onPress={() => {
+                  setModalVisible(true);
+                }}
+                style={[mainStyles.iconButton, styles.homeGraphicButton, mainStyles.greenButton]}>
+                <Ionicons name="ios-list" size={20} style={mainStyles.icon}></Ionicons>
             </TouchableOpacity>
           </View>
         </View>
       </View>
       <View style={styles.listContainer}>
         <View style={styles.listHeader}>
-          <Text style={[mainStyles.listTitle, {color: '#fff'}]}>Housemates</Text>
-          <TouchableOpacity style={[mainStyles.iconButtonRow]}>
-            <Ionicons name="ios-person-add" size={20} style={{paddingRight: 5, color: '#fff'}}></Ionicons>
-            <Text style={[mainStyles.iconLabel, {color: '#fff'}]}>Invite</Text>
-          </TouchableOpacity>
+          <Text style={[styles.listTitle]}>Housemates</Text>
+          <StyledButton title="Invite" size="sm" color="orange" icon="plus" />
         </View>
         <FlatList
           data={POINTS_DATA}
           numColumns={1}
-          renderItem={renderPointItem}
+          renderItem={renderUserItem}
         />
       </View>
     </View>

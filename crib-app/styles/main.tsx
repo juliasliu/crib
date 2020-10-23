@@ -8,29 +8,44 @@ const styles = StyleSheet.create({
   scroll: {
     backgroundColor: '#FFF',
   },
-  listTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: Colors.gray,
-  },
-  iconButton: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    margin: 10,
-  },
+
+  // Icons
   iconButtonRow: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   icon: {
-    backgroundColor: Colors.green,
-    padding: 10,
     color: "#fff",
-    borderRadius: 50,
   },
-  iconLabel: {
-    fontWeight: 'bold',
-    color: '#fff',
+
+  // Buttons
+  greenButton: Colors.greenButton,
+  orangeButton: Colors.orangeButton,
+  yellowButton: Colors.yellowButton,
+  iconButton: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 15,
+    borderRadius: 50,
+    backgroundColor: Colors.green,
+    shadowColor: Colors.darkGreen,
+    shadowOffset: {
+      width: 0,
+      height: 5,
+    },
+    shadowOpacity: 1,
+    shadowRadius: 0,
+  },
+  homeButton: {
+    backgroundColor: Colors.green,
+    shadowColor: Colors.darkGreen,
+    shadowOffset: {
+      width: 0,
+      height: 5,
+    },
+    shadowOpacity: 1,
+    shadowRadius: 0,
   },
 });
 

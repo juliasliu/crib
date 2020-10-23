@@ -1,28 +1,60 @@
-const green = '#5DB075';
-const orange = '#E46A01';
-const yellow = '#ECDC00';
-const gray = '#888';
+const green = '#1cad61';
+const darkGreen = '#0e8045';
+
+const orange = '#e07f2b';
+const darkOrange = '#c46818';
+
+const yellow = '#e8da5a';
+const darkYellow = '#baac29';
+
+const white = '#fff';
+const backgroundWhite = '#f5f5f5';
+
+const veryLightGray = '#e5e5e5';
+const lightGray = '#d5d5d5';
+const gray = '#aaa';
+const darkGray = '#555';
 
 const tintColorLight = green;
 const tintColorDark = '#fff';
 
 export default {
   green: green,
+  darkGreen: darkGreen,
   orange: orange,
+  darkOrange: darkOrange,
   yellow: yellow,
+  darkYellow: darkYellow,
+  white: white,
+  backgroundWhite: backgroundWhite,
+  veryLightGray: veryLightGray,
+  lightGray: lightGray,
   gray: gray,
+  darkGray: darkGray,
   light: {
     text: '#000',
     background: '#fff',
     tint: tintColorLight,
-    tabIconDefault: '#ccc',
+    tabIconDefault: gray,
     tabIconSelected: tintColorLight,
   },
   dark: {
     text: '#fff',
     background: '#000',
     tint: tintColorDark,
-    tabIconDefault: '#ccc',
+    tabIconDefault: gray,
     tabIconSelected: tintColorDark,
+  },
+  greenButton: {
+    backgroundColor: green,
+    shadowColor: darkGreen,
+  },
+  orangeButton: {
+    backgroundColor: orange,
+    shadowColor: darkOrange,
+  },
+  yellowButton: {
+    backgroundColor: yellow,
+    shadowColor: darkYellow,
   },
 };
