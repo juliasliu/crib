@@ -5,12 +5,21 @@ import * as React from 'react';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
-import TabOneScreen from '../screens/TabOneScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
-import TabThreeScreen from '../screens/TabThreeScreen';
-import TabFourScreen from '../screens/TabFourScreen';
-import TabFiveScreen from '../screens/TabFiveScreen';
-import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
+import ChoresScreen from '../screens/ChoresScreen';
+import FridgeScreen from '../screens/FridgeScreen';
+import HomeScreen from '../screens/HomeScreen';
+import FinancesScreen from '../screens/FinancesScreen';
+import ProfileScreen from '../screens/ProfileScreen';
+import { BottomTabParamList, ChoresParamList, FridgeParamList } from '../types';
+
+import HomeButton from '../components/HomeButton';
+
+import {
+  Text,
+  View,
+  Button,
+  TouchableOpacity,
+} from 'react-native';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -19,121 +28,181 @@ export default function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
+      initialRouteName="Chores"
+      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}
+      tabBar={props => <MyTabBar {...props} />}>
       <BottomTab.Screen
-        name="TabOne"
-        component={TabOneNavigator}
-        options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
-        }}
+        name="Chores"
+        component={ChoresNavigator}
       />
       <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoNavigator}
-        options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
-        }}
+        name="Fridge"
+        component={FridgeNavigator}
       />
       <BottomTab.Screen
-        name="TabThree"
-        component={TabThreeNavigator}
-        options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
-        }}
+        name="Home"
+        component={HomeNavigator}
       />
       <BottomTab.Screen
-        name="TabFour"
-        component={TabFourNavigator}
-        options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
-        }}
+        name="Finances"
+        component={FinancesNavigator}
       />
       <BottomTab.Screen
-        name="TabFive"
-        component={TabFiveNavigator}
-        options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
-        }}
+        name="Profile"
+        component={ProfileNavigator}
       />
     </BottomTab.Navigator>
+  );
+}
+
+function MyTabBar({ state, descriptors, navigation }) {
+  const focusedOptions = descriptors[state.routes[state.index].key].options;
+
+  if (focusedOptions.tabBarVisible === false) {
+    return null;
+  }
+
+  return (
+    <View style={{ flexDirection: 'row' }}>
+      {state.routes.map((route, index) => {
+        const { options } = descriptors[route.key];
+        const label =
+          options.tabBarLabel !== undefined
+            ? options.tabBarLabel
+            : options.title !== undefined
+            ? options.title
+            : route.name;
+
+        const isFocused = state.index === index;
+
+        const onPress = () => {
+          const event = navigation.emit({
+            type: 'tabPress',
+            target: route.key,
+            canPreventDefault: true,
+          });
+
+          if (!isFocused && !event.defaultPrevented) {
+            navigation.navigate(route.name);
+          }
+        };
+
+        const onLongPress = () => {
+          navigation.emit({
+            type: 'tabLongPress',
+            target: route.key,
+          });
+        };
+
+        const icon =
+          route.name == "Chores" ? "ios-hand" :
+          route.name == "Fridge" ? "ios-restaurant" :
+          route.name == "Home" ? "ios-home" :
+          route.name == "Finances" ? "ios-cash" :
+          route.name == "Profile" ? "ios-person" : null;
+
+        return (
+          <TouchableOpacity
+            accessibilityRole="button"
+            accessibilityState={isFocused ? { selected: true } : {}}
+            accessibilityLabel={options.tabBarAccessibilityLabel}
+            testID={options.tabBarTestID}
+            onPress={onPress}
+            onLongPress={onLongPress}
+            style={{ flex: 1, justifyContent: 'center' }}
+          >
+          {
+            route.name == "Home" ? <HomeButton navigation={navigation} /> :
+            (
+              <View style={{ flexDirection: 'column', alignItems: 'center', padding: 5 }}>
+                <TabBarIcon name={icon} color={isFocused ? Colors.green : Colors.gray } />
+                <Text style={{ color: isFocused ? Colors.green : Colors.gray, fontSize: 12 }}>
+                  {label}
+                </Text>
+              </View>
+            )
+          }
+          </TouchableOpacity>
+        );
+      })}
+    </View>
   );
 }
 
 // You can explore the built-in icon families and icons on the web at:
 // https://icons.expo.fyi/
 function TabBarIcon(props: { name: string; color: string }) {
-  return <Ionicons size={30} style={{ marginBottom: -3 }} {...props} />;
+  return <Ionicons size={30} {...props} />;
 }
 
 // Each tab has its own navigation stack, you can read more about this pattern here:
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
-const TabOneStack = createStackNavigator<TabOneParamList>();
+const ChoresStack = createStackNavigator<ChoresParamList>();
 
-function TabOneNavigator() {
+function ChoresNavigator() {
   return (
-    <TabOneStack.Navigator>
-      <TabOneStack.Screen
-        name="TabOneScreen"
-        component={TabOneScreen}
-        options={{ headerTitle: 'Tab One Title' }}
+    <ChoresStack.Navigator>
+      <ChoresStack.Screen
+        name="ChoresScreen"
+        component={ChoresScreen}
+        options={{ headerTitle: 'Chores' }}
       />
-    </TabOneStack.Navigator>
+    </ChoresStack.Navigator>
   );
 }
 
-const TabTwoStack = createStackNavigator<TabTwoParamList>();
+const FridgeStack = createStackNavigator<FridgeParamList>();
 
-function TabTwoNavigator() {
+function FridgeNavigator() {
   return (
-    <TabTwoStack.Navigator>
-      <TabTwoStack.Screen
-        name="TabTwoScreen"
-        component={TabTwoScreen}
-        options={{ headerTitle: 'Tab Two Title' }}
+    <FridgeStack.Navigator>
+      <FridgeStack.Screen
+        name="FridgeScreen"
+        component={FridgeScreen}
+        options={{ headerTitle: 'Fridge' }}
       />
-    </TabTwoStack.Navigator>
+    </FridgeStack.Navigator>
   );
 }
 
-const TabThreeStack = createStackNavigator<TabThreeParamList>();
+const HomeStack = createStackNavigator<HomeParamList>();
 
-function TabThreeNavigator() {
+function HomeNavigator() {
   return (
-    <TabThreeStack.Navigator>
-      <TabThreeStack.Screen
-        name="TabThreeScreen"
-        component={TabThreeScreen}
-        options={{ headerTitle: 'Tab Three Title' }}
+    <HomeStack.Navigator>
+      <HomeStack.Screen
+        name="HomeScreen"
+        component={HomeScreen}
+        options={{ headerTitle: 'Home' }}
       />
-    </TabThreeStack.Navigator>
+    </HomeStack.Navigator>
   );
 }
 
-const TabFourStack = createStackNavigator<TabFourParamList>();
+const FinancesStack = createStackNavigator<FinancesParamList>();
 
-function TabFourNavigator() {
+function FinancesNavigator() {
   return (
-    <TabFourStack.Navigator>
-      <TabFourStack.Screen
-        name="TabFourScreen"
-        component={TabFourScreen}
-        options={{ headerTitle: 'Tab Four Title' }}
+    <FinancesStack.Navigator>
+      <FinancesStack.Screen
+        name="FinancesScreen"
+        component={FinancesScreen}
+        options={{ headerTitle: 'Finances' }}
       />
-    </TabFourStack.Navigator>
+    </FinancesStack.Navigator>
   );
 }
 
-const TabFiveStack = createStackNavigator<TabFiveParamList>();
+const ProfileStack = createStackNavigator<ProfileParamList>();
 
-function TabFiveNavigator() {
+function ProfileNavigator() {
   return (
-    <TabFiveStack.Navigator>
-      <TabFiveStack.Screen
-        name="TabFiveScreen"
-        component={TabFiveScreen}
-        options={{ headerTitle: 'Tab Five Title' }}
+    <ProfileStack.Navigator>
+      <ProfileStack.Screen
+        name="ProfileScreen"
+        component={ProfileScreen}
+        options={{ headerTitle: 'Profile' }}
       />
-    </TabFiveStack.Navigator>
+    </ProfileStack.Navigator>
   );
 }
