@@ -175,6 +175,23 @@ function HomeNavigator() {
         component={HomeScreen}
         options={{ headerTitle: 'Home' }}
       />
+      <HomeStack.Screen
+        name="ProfileScreen"
+        component={ProfileScreen}
+        options={{
+          title: 'Profile',
+           headerStyle: {
+             backgroundColor: Colors.green,
+             elevation: 0,
+             shadowOpacity: 0,
+             borderBottomWidth: 0,
+           },
+           headerTintColor: '#fff',
+           headerTitleStyle: {
+             fontWeight: 'bold',
+           },
+       }}
+      />
     </HomeStack.Navigator>
   );
 }
