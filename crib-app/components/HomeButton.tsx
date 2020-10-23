@@ -9,7 +9,8 @@ class HomeButton extends Component {
     toggleView = () => {
         Animated.timing(this.mode, {
             toValue: this.mode._value === 0 ? 1 : 0,
-            duration: 300
+            duration: 300,
+            useNativeDriver: false,
         }).start();
     };
     render() {
