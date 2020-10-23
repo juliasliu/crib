@@ -4,59 +4,75 @@ import Colors from '../constants/Colors';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   scroll: {
-    backgroundColor: '#FFF',
+    backgroundColor: Colors.green,
   },
-  //Header containers
-  profileHeader: {
-    flex: 1,
-    width: '100%',
+  profileContainer: {
+    backgroundColor: '#fff',
     alignItems: 'center',
   },
+  //Header containers
   profileCover: {
+    position: 'absolute',
     flex: 1,
     width: '100%',
     height: '20%',
-    padding: 20,
     backgroundColor: Colors.green,
   },
   profile: {
-    padding: 20,
+    marginTop: 100,
+    width: '100%',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+  },
+  profileContent: {
+    top: -85,
+    marginBottom: -85,
   },
   userImage: {
     borderColor: '#FFF',
     borderRadius: 85,
     borderWidth: 3,
     height: 170,
-    marginBottom: 15,
+    marginBottom: 10,
     width: 170,
   },
-  userNameRow: {
-    marginBottom: 10,
+  nameRow: {
   },
-  userNameText: {
+  nameText: {
     fontSize: 24,
     fontWeight: 'bold',
     textAlign: 'center',
   },
+  usernameRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingBottom: 5,
+  },
+  usernameText: {
+    fontSize: 18,
+    color: Colors.gray,
+    textAlign: 'center',
+  },
   userPointsRow: {
-    marginLeft: 40,
-    marginRight: 40,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   userPointsText: {
     fontSize: 18,
+    color: Colors.gray,
     textAlign: 'center',
   },
 
   //List styles
   listContainer: {
     flex: 1,
-    backgroundColor: '#FFF',
     paddingTop: 0,
     width: '100%',
+    backgroundColor: '#fff',
    },
 
    listRow: {

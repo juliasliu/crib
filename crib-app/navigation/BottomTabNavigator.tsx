@@ -201,7 +201,19 @@ function ProfileNavigator() {
       <ProfileStack.Screen
         name="ProfileScreen"
         component={ProfileScreen}
-        options={{ headerTitle: 'Profile' }}
+        options={{
+          title: 'Profile',
+           headerStyle: {
+             backgroundColor: Colors.green,
+             elevation: 0,
+             shadowOpacity: 0,
+             borderBottomWidth: 0,
+           },
+           headerTintColor: '#fff',
+           headerTitleStyle: {
+             fontWeight: 'bold',
+           },
+       }}
       />
     </ProfileStack.Navigator>
   );

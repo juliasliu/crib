@@ -1,5 +1,5 @@
 import * as React from 'react';
-
+import { Ionicons } from '@expo/vector-icons';
 import {useState} from 'react';
 import { Dimensions } from 'react-native'
 import SegmentedControl from '../components/segmentedControl';
@@ -75,24 +75,22 @@ export default function ProfileScreen() {
     const id = props.id;
     const points = props.points
     return (
-      <View style={styles.profileHeader}>
-        <View style={styles.profileCover}>
-        </View>
-        <View style={styles.profile}>
+      <View style={styles.profile}>
+        <View style={styles.profileContent}>
           <Image
               style={styles.userImage}
               source={pic}
           />
-          <View style={styles.userNameRow}>
-            <Text style={styles.userNameText}>{name}</Text>
+          <View style={styles.nameRow}>
+            <Text style={styles.nameText}>{name}</Text>
+          </View>
+
+          <View style={styles.usernameRow}>
+            <Text style={styles.usernameText}>{'@'+id}</Text>
           </View>
 
           <View style={styles.userPointsRow}>
-            <Text style={styles.userPointsText}>{'@'+id}</Text>
-          </View>
-
-          <View style={styles.userPointsRow}>
-            <Text style={styles.userPointsText}>{'[Coins]'+points}</Text>
+            <Text style={styles.userPointsText}>${points}</Text>
           </View>
         </View>
       </View>
@@ -176,8 +174,10 @@ export default function ProfileScreen() {
 
 
   return (
-    <ScrollView style={styles.scroll}>
-      <View style={styles.container}>
+    <ScrollView style={[styles.scroll, styles.container]}>
+      <View style={[styles.container, styles.profileContainer]}>
+        <View style={styles.profileCover}>
+        </View>
         <Header
           name = "Richardd Mao"
           points = "100"
@@ -192,7 +192,6 @@ export default function ProfileScreen() {
           activeSegmentBackgroundColor='#F6F6F6'
           activeTextColor='#5DB075'
           textColor='#BDBDBD'
-          paddingVertical={18}
         />
         <ChooseTab
           index = {tabIndex}
