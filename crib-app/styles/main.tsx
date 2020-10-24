@@ -4,9 +4,20 @@ import Colors from '../constants/Colors';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    padding: 20,
   },
   scroll: {
-    backgroundColor: '#FFF',
+    backgroundColor: Colors.backgroundWhite,
+  },
+  title: {
+    fontSize: 20,
+    paddingVertical: 5,
+    fontWeight: 'bold',
+    color: Colors.darkGray,
+  },
+  subtitle: {
+    color: Colors.darkGray,
+    marginBottom: 10
   },
 
   // Icons

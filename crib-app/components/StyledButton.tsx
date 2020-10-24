@@ -17,7 +17,7 @@ import {
 } from 'react-native';
 import Colors from '../constants/Colors';
 
-export default function StyledButton({ onPress, title, size, color, icon }) {
+export default function StyledButton({ onPress, title, size, color, icon, style }) {
   return (
     <TouchableOpacity
     activeOpacity={0.8}
@@ -35,6 +35,7 @@ export default function StyledButton({ onPress, title, size, color, icon }) {
       color === "green" && Colors.greenButton,
       color === "orange" && Colors.orangeButton,
       color === "yellow" && Colors.yellowButton,
+      style
     ]}>
     {
       icon ? <Icon name={icon}

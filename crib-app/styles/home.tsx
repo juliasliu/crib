@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   scroll: {
-    backgroundColor: '#fff',
+    backgroundColor: Colors.backgroundWhite,
   },
 
   // Home graphic
