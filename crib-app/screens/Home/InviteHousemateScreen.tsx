@@ -25,10 +25,10 @@ import styles from '../../styles/home';
 export default function InviteScreen() {
   return (
     <ScrollView style={[mainStyles.scroll, mainStyles.container]}>
-      <Text style={mainStyles.title}>Invite User to Household</Text>
+      <Text style={mainStyles.title}>Invite User</Text>
       <Text style={mainStyles.subtitle}>Grow your house by inviting new members!</Text>
 
-      <StyledInput type="text" label="House code" value="12345" icon="hashtag" placeholder="Send user your house code" editable={false} />
+      <StyledInput type="text" label="House code" value="12345" icon="hashtag" description="You can send the user your customized house code" editable={false} />
       <StyledInput type="text" label="Username" icon="search" placeholder="Invite user by username: @" />
       <StyledButton title="Add User" color="green" icon="plus" onPress={() => console.log("hi")} style={{marginTop: 20}}/>
     </ScrollView>

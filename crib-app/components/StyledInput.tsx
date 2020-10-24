@@ -18,7 +18,7 @@ import {
 } from 'react-native';
 import Colors from '../constants/Colors';
 
-export default function StyledInput({ type, label, value, icon, placeholder, size, style, editable }) {
+export default function StyledInput({ type, label, value, icon, placeholder, description, size, style, editable }) {
 
   const handleText = () => {
 
@@ -41,7 +41,7 @@ export default function StyledInput({ type, label, value, icon, placeholder, siz
         }
         {
           type === "text" ? (
-            <TextInput style = {[styles.input, style, !editable && { color: Colors.gray }]}
+            <TextInput style = {[styles.input, style, !editable && { color: Colors.darkGray }]}
                underlineColorAndroid = "transparent"
                value = {value}
                placeholder = {placeholder}
@@ -50,7 +50,7 @@ export default function StyledInput({ type, label, value, icon, placeholder, siz
                onChangeText = {handleText}
                editable={editable}/>
           ) : type === "email" ? (
-            <TextInput style = {[styles.input, style, !editable && { color: Colors.gray }]}
+            <TextInput style = {[styles.input, style, !editable && { color: Colors.darkGray }]}
                underlineColorAndroid = "transparent"
                value = {value}
                placeholder = {placeholder}
@@ -58,7 +58,7 @@ export default function StyledInput({ type, label, value, icon, placeholder, siz
                onChangeText = {handleEmail}
                editable={editable}/>
           ) : type === "password" ? (
-            <TextInput style = {[styles.input, style, !editable && { color: Colors.gray } ]}
+            <TextInput style = {[styles.input, style, !editable && { color: Colors.darkGray } ]}
                underlineColorAndroid = "transparent"
                value = {value}
                placeholder = {placeholder}
@@ -68,6 +68,9 @@ export default function StyledInput({ type, label, value, icon, placeholder, siz
           ) : null
         }
       </View>
+      <Text style={styles.inputDescription}>
+        {description}
+      </Text>
    </View>
   );
 }
@@ -100,4 +103,8 @@ const styles = StyleSheet.create({
     height: 40,
     fontSize: 16,
   },
+  inputDescription: {
+    color: Colors.gray,
+    paddingTop: 5,
+  }
 });
