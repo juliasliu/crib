@@ -28,8 +28,8 @@ export default function InviteScreen() {
       <Text style={mainStyles.title}>Invite User to Household</Text>
       <Text style={mainStyles.subtitle}>Grow your house by inviting new members!</Text>
 
-      <StyledInput type="text" label="House code" value="12345" placeholder="Send user your house code" />
-      <StyledInput type="text" label="Username" placeholder="Invite user by username: @" />
+      <StyledInput type="text" label="House code" value="12345" icon="hashtag" placeholder="Send user your house code" editable={false} />
+      <StyledInput type="text" label="Username" icon="search" placeholder="Invite user by username: @" />
       <StyledButton title="Add User" color="green" icon="plus" onPress={() => console.log("hi")} style={{marginTop: 20}}/>
     </ScrollView>
   );

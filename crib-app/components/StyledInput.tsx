@@ -18,7 +18,7 @@ import {
 } from 'react-native';
 import Colors from '../constants/Colors';
 
-export default function StyledInput({ type, label, value, placeholder, size, style }) {
+export default function StyledInput({ type, label, value, icon, placeholder, size, style, editable }) {
 
   const handleText = () => {
 
@@ -35,31 +35,39 @@ export default function StyledInput({ type, label, value, placeholder, size, sty
       <Text style={styles.inputLabel}>
         {label}
       </Text>
-      {
-        type === "text" ? (
-          <TextInput style = {[styles.input, style]}
-             underlineColorAndroid = "transparent"
-             value = {value}
-             placeholder = {placeholder}
-             autoCapitalize = "none"
-             onFocus = {handleText}
-             onChangeText = {handleText}/>
-        ) : type === "email" ? (
-          <TextInput style = {[styles.input, style]}
-             underlineColorAndroid = "transparent"
-             value = {value}
-             placeholder = {placeholder}
-             autoCapitalize = "none"
-             onChangeText = {handleEmail}/>
-        ) : type === "password" ? (
-          <TextInput style = {[styles.input, style]}
-             underlineColorAndroid = "transparent"
-             value = {value}
-             placeholder = {placeholder}
-             autoCapitalize = "none"
-             onChangeText = {handlePassword}/>
-        ) : null
-      }
+      <View style={styles.inputIconContainer}>
+        {
+          icon && <Icon style={styles.inputIcon} name={icon} size={20} />
+        }
+        {
+          type === "text" ? (
+            <TextInput style = {[styles.input, style, !editable && { color: Colors.gray }]}
+               underlineColorAndroid = "transparent"
+               value = {value}
+               placeholder = {placeholder}
+               autoCapitalize = "none"
+               onFocus = {handleText}
+               onChangeText = {handleText}
+               editable={editable}/>
+          ) : type === "email" ? (
+            <TextInput style = {[styles.input, style, !editable && { color: Colors.gray }]}
+               underlineColorAndroid = "transparent"
+               value = {value}
+               placeholder = {placeholder}
+               autoCapitalize = "none"
+               onChangeText = {handleEmail}
+               editable={editable}/>
+          ) : type === "password" ? (
+            <TextInput style = {[styles.input, style, !editable && { color: Colors.gray } ]}
+               underlineColorAndroid = "transparent"
+               value = {value}
+               placeholder = {placeholder}
+               autoCapitalize = "none"
+               onChangeText = {handlePassword}
+               editable={editable}/>
+          ) : null
+        }
+      </View>
    </View>
   );
 }
@@ -74,11 +82,22 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
   },
-  input: {
+  inputIconContainer: {
     marginTop: 10,
-    height: 40,
+    flexDirection: 'row',
+    alignItems: 'center',
     borderColor: Colors.lightGray,
     borderBottomWidth: 2,
+  },
+  inputIcon: {
+    marginRight: 10,
+    color: Colors.gray,
+    borderColor: Colors.lightGray,
+    borderBottomWidth: 2,
+  },
+  input: {
+    flex: 1,
+    height: 40,
     fontSize: 16,
   },
 });
