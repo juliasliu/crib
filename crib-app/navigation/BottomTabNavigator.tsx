@@ -6,12 +6,17 @@ import * as React from 'react';
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import ChoresScreen from '../screens/ChoresScreen';
+
 import FridgeScreen from '../screens/Fridge/FridgeScreen';
 import InventoryAddScreen from '../screens/Fridge/InventoryAddScreen';
 import ListAddScreen from '../screens/Fridge/ListAddScreen';
-import HomeScreen from '../screens/HomeScreen';
+
+import HomeScreen from '../screens/Home/HomeScreen';
+import TasksScreen from '../screens/Home/TasksScreen';
+
 import FinancesScreen from '../screens/FinancesScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+
 import { BottomTabParamList, ChoresParamList, FridgeParamList } from '../types';
 
 import HomeButton from '../components/HomeButton';
@@ -182,7 +187,28 @@ function HomeNavigator() {
       <HomeStack.Screen
         name="HomeScreen"
         component={HomeScreen}
-        options={{ headerTitle: 'Home' }}
+        options={{
+          headerTitle: 'Home',
+          headerRight: () => (
+            <Ionicons
+              size={30}
+              onPress={() => alert('Take a picture!!')}
+              name="ios-camera"
+              color={Colors.darkGray}
+              style={{paddingHorizontal: 20}}
+            />
+          ),
+        }}
+      />
+      <HomeStack.Screen
+        name="TasksScreen"
+        component={TasksScreen}
+        options={{ headerTitle: 'Tasks' }}
+      />
+      <HomeStack.Screen
+        name="ChatScreen"
+        component={TasksScreen}
+        options={{ headerTitle: 'Chat' }}
       />
       <HomeStack.Screen
         name="ProfileScreen"

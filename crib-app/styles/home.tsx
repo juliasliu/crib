@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   scroll: {
-    backgroundColor: '#fff',
+    backgroundColor: Colors.backgroundWhite,
   },
 
   // Home graphic
@@ -57,14 +57,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 22
+    marginTop: 20
   },
   modalView: {
     margin: 20,
     backgroundColor: "white",
     borderRadius: 20,
     padding: 35,
-    alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -74,21 +73,15 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5
   },
-  openButton: {
-    backgroundColor: "#F194FF",
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2
+
+  // CheckBox
+  checkboxContainer: {
+    flexDirection: "row",
+    marginBottom: 20,
   },
-  textStyle: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center"
+  checkbox: {
+    alignSelf: "center",
   },
-  modalText: {
-    marginBottom: 15,
-    textAlign: "center"
-  }
 });
 
 export default styles;
