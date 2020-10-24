@@ -28,6 +28,7 @@ export default function TaskItem({ item, toggleChecked }) {
         checked={item.checked}
         onPress={() => toggleChecked(item.id, item.type)}
         containerStyle={mainStyles.checkbox}
+        checkedColor={Colors.green}
         />
       </View>
 

@@ -13,6 +13,11 @@ const styles = StyleSheet.create({
   scroll: {
     backgroundColor: Colors.backgroundWhite,
   },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 
   // Titles
   title: {
@@ -24,6 +29,9 @@ const styles = StyleSheet.create({
   subtitle: {
     color: Colors.darkGray,
     marginBottom: 10
+  },
+  small: {
+    color: Colors.gray,
   },
 
   // Icons
@@ -119,7 +127,7 @@ const styles = StyleSheet.create({
      height: 50,
      borderRadius: 50,
      borderWidth: 1,
-     borderColor: Colors.lightGray,
+     borderColor: Colors.veryLightGray,
    },
 
  infoContainer: {
@@ -162,7 +170,9 @@ const styles = StyleSheet.create({
    borderRadius: 40,
    borderWidth: 1,
    height: 40,
-   width: 40
+   width: 40,
+   borderWidth: 1,
+   borderColor: Colors.veryLightGray,
  },
  caretContainer: {
    flex: 1,

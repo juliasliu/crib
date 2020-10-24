@@ -33,7 +33,7 @@ export default class TasksScreen extends React.Component {
           title: 'Trash',
           desc: "Take out the trash.",
           time: '8 mins',
-          owner: require('../../assets/images/ramen.jpg'),
+          owner: require('../../assets/images/girl.jpg'),
           checked: false,
         },
         {
@@ -42,7 +42,7 @@ export default class TasksScreen extends React.Component {
           title: 'Vacuum',
           desc: "Vacuum the living room.",
           time: '2 hours',
-          owner: require('../../assets/images/ramen.jpg'),
+          owner: require('../../assets/images/nature.jpg'),
           checked: false,
         },
         {
@@ -62,7 +62,7 @@ export default class TasksScreen extends React.Component {
           title: 'Apples',
           desc: "1 pack",
           time: '8 mins',
-          owner: require('../../assets/images/ramen.jpg'),
+          owner: require('../../assets/images/silhouette.jpg'),
           checked: false,
         },
         {
@@ -80,7 +80,7 @@ export default class TasksScreen extends React.Component {
           title: 'Milk',
           desc: "1 gallon",
           time: '1 week',
-          owner: require('../../assets/images/ramen.jpg'),
+          owner: require('../../assets/images/girl.jpg'),
           checked: false,
         },
       ],
@@ -115,7 +115,10 @@ export default class TasksScreen extends React.Component {
         <View style={mainStyles.listContainer}>
           <View style={mainStyles.listHeader}>
             <Text style={[mainStyles.listTitle]}>Chores</Text>
-            <StyledButton title="Add" size="sm" color="orange" icon="plus" onPress={() => console.log("Add new hcore")} />
+            <View style={mainStyles.row}>
+              <Text style={mainStyles.small} onPress={() => navigation.navigate("FridgeScreen")}>View all</Text>
+              <StyledButton title="Add" size="sm" color="orange" icon="plus" style={{marginLeft: 10}} onPress={() => console.log("Add new hcore")} />
+            </View>
           </View>
           <FlatList
             data={this.state.CHORES_DATA}
@@ -128,7 +131,10 @@ export default class TasksScreen extends React.Component {
         <View style={mainStyles.listContainer}>
           <View style={mainStyles.listHeader}>
             <Text style={[mainStyles.listTitle]}>Shopping List</Text>
-            <StyledButton title="Add" size="sm" color="orange" icon="plus" onPress={() => console.log("Add new hcore")} />
+            <View style={mainStyles.row}>
+              <Text style={mainStyles.small} onPress={() => navigation.navigate("FridgeScreen")}>View all</Text>
+              <StyledButton title="Add" size="sm" color="orange" icon="plus" style={{marginLeft: 10}} onPress={() => console.log("Add new shoppign")} />
+            </View>
           </View>
           <FlatList
             data={this.state.SHOPPING_DATA}
