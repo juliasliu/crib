@@ -6,7 +6,7 @@ var deviceHeight = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
     container: {
-      backgroundColor: '#ffffff',
+      backgroundColor: '#fff',
       flex: 1,
       height: deviceHeight,
       width: deviceWidth,
@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
         marginTop:0
     },
     button: {
+        backgroundColor:"#fff",
         alignItems: 'center',
         marginTop: 30
     }, 
