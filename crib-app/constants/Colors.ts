@@ -45,16 +45,4 @@ export default {
     tabIconDefault: gray,
     tabIconSelected: tintColorDark,
   },
-  greenButton: {
-    backgroundColor: green,
-    shadowColor: darkGreen,
-  },
-  orangeButton: {
-    backgroundColor: orange,
-    shadowColor: darkOrange,
-  },
-  yellowButton: {
-    backgroundColor: yellow,
-    shadowColor: darkYellow,
-  },
 };

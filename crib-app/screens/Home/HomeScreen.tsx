@@ -55,7 +55,9 @@ export default function HomeScreen({ navigation }) {
   ];
 
   const renderUserItem = ({item}) => (
-    <UserItem name={item.name} points={item.points} avatar={item.avatar} description={item.description} navigation={navigation}/>
+    <View style={[mainStyles.listRow, {borderBottomWidth: 0}]}>
+      <UserItem item={item} navigation={navigation}/>
+    </View>
   )
 
   return (
@@ -105,15 +107,16 @@ export default function HomeScreen({ navigation }) {
           </TouchableOpacity>
         </View>
       </View>
-      <View style={styles.listContainer}>
-        <View style={styles.listHeader}>
-          <Text style={[styles.listTitle]}>Housemates</Text>
+      <View style={mainStyles.listContainer}>
+        <View style={mainStyles.listHeader}>
+          <Text style={[mainStyles.listTitle]}>Housemates</Text>
           <StyledButton title="Invite" size="sm" color="orange" icon="plus" onPress={() => setModalVisible(true)} />
         </View>
         <FlatList
           data={POINTS_DATA}
           numColumns={1}
           renderItem={renderUserItem}
+          keyExtractor={(item, index) => index.toString()}
         />
       </View>
     </View>

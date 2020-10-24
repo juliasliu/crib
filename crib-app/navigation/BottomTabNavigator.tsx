@@ -13,6 +13,7 @@ import ListAddScreen from '../screens/Fridge/ListAddScreen';
 
 import HomeScreen from '../screens/Home/HomeScreen';
 import TasksScreen from '../screens/Home/TasksScreen';
+import ChatScreen from '../screens/Home/ChatScreen';
 
 import FinancesScreen from '../screens/FinancesScreen';
 import ProfileScreen from '../screens/ProfileScreen';
@@ -120,6 +121,7 @@ function MyTabBar({ state, descriptors, navigation }) {
             onPress={onPress}
             onLongPress={onLongPress}
             style={{ flex: 1, justifyContent: 'center' }}
+            key={index}
           >
           {
             route.name == "Home" ? <HomeButton navigation={navigation} /> :
@@ -218,7 +220,7 @@ function HomeNavigator() {
       />
       <HomeStack.Screen
         name="ChatScreen"
-        component={TasksScreen}
+        component={ChatScreen}
         options={{ headerTitle: 'Chat' }}
       />
       <HomeStack.Screen

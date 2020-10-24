@@ -15,6 +15,7 @@ import {
   TouchableOpacity,
   Modal,
 } from 'react-native';
+import mainStyles from '../styles/main';
 import Colors from '../constants/Colors';
 
 export default function StyledButton({ onPress, title, size, color, icon, style }) {
@@ -32,9 +33,9 @@ export default function StyledButton({ onPress, title, size, color, icon, style 
         paddingHorizontal: 32,
         paddingVertical: 16,
       },
-      color === "green" && Colors.greenButton,
-      color === "orange" && Colors.orangeButton,
-      color === "yellow" && Colors.yellowButton,
+      color === "green" && mainStyles.greenButton,
+      color === "orange" && mainStyles.orangeButton,
+      color === "yellow" && mainStyles.yellowButton,
       style
     ]}>
     {
