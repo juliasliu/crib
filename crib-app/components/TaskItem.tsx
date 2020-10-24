@@ -22,7 +22,7 @@ import Colors from '../constants/Colors';
 
 export default function TaskItem({ item, toggleChecked }) {
   return (
-    <View style={mainStyles.listRow}>
+    <View style={[mainStyles.listRow, styles.itemContainer]}>
       <View style={mainStyles.checkboxContainer}>
       <CheckBox
         checked={item.checked}
@@ -48,3 +48,19 @@ export default function TaskItem({ item, toggleChecked }) {
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  // ...
+  itemContainer: {
+    padding: 10,
+    backgroundColor: Colors.white,
+		shadowColor: Colors.veryLightGray,
+		shadowOffset: {
+			width: 0,
+			height: 5,
+		},
+		shadowOpacity: 1,
+		shadowRadius: 0,
+    elevation: 8,
+  },
+});

@@ -18,7 +18,6 @@ import {
 
 import StyledInput from '../../components/StyledInput';
 import StyledButton from '../../components/StyledButton';
-import TaskItem from '../../components/TaskItem';
 
 import mainStyles from '../../styles/main';
 import styles from '../../styles/home';
@@ -55,94 +54,15 @@ export default class ChatScreen extends React.Component {
           checked: false,
         },
       ],
-      SHOPPING_DATA: [
-        {
-          id: 3,
-          type: "Shopping",
-          title: 'Apples',
-          desc: "1 pack",
-          time: '8 mins',
-          owner: require('../../assets/images/silhouette.jpg'),
-          checked: false,
-        },
-        {
-          id: 4,
-          type: "Shopping",
-          title: 'Flour',
-          desc: "1 lbs",
-          time: '2 hours',
-          owner: require('../../assets/images/ramen.jpg'),
-          checked: false,
-        },
-        {
-          id: 5,
-          type: "Shopping",
-          title: 'Milk',
-          desc: "1 gallon",
-          time: '1 week',
-          owner: require('../../assets/images/girl.jpg'),
-          checked: false,
-        },
-      ],
   }
 
-  setToggleCheckBox = (id, type) => {
-    if (type === "Chore") {
-      var tasks = [...this.state.CHORES_DATA];
-      var task = tasks[tasks.findIndex(elem => elem.id === id)];
-      task.checked = !task.checked;
-      this.setState({CHORES_DATA: tasks})
-    } else if (type === "Shopping") {
-      var tasks = [...this.state.SHOPPING_DATA];
-      var task = tasks[tasks.findIndex(elem => elem.id === id)];
-      task.checked = !task.checked;
-      this.setState({SHOPPING_DATA: tasks})
-    }
-  }
-
-  renderTaskItem = ({item, type}) => (
+  renderMessage = ({item, type}) => (
     <TaskItem item={item} toggleChecked={this.setToggleCheckBox.bind(this)} />
   )
 
   render() {
     return (
       <ScrollView style={[mainStyles.scroll, mainStyles.container]}>
-        <View style={[mainStyles.contentContainer]}>
-          <Text style={mainStyles.title}>Tasks</Text>
-          <Text style={mainStyles.subtitle}>Earn points by completing tasks on time. Nudge your housemates if a task is idle!</Text>
-        </View>
-
-        <View style={mainStyles.listContainer}>
-          <View style={mainStyles.listHeader}>
-            <Text style={[mainStyles.listTitle]}>Chores</Text>
-            <View style={mainStyles.row}>
-              <Text style={mainStyles.small} onPress={() => navigation.navigate("FridgeScreen")}>View all</Text>
-              <StyledButton title="Add" size="sm" color="orange" icon="plus" style={{marginLeft: 10}} onPress={() => console.log("Add new hcore")} />
-            </View>
-          </View>
-          <FlatList
-            data={this.state.CHORES_DATA}
-            numColumns={1}
-            renderItem={this.renderTaskItem.bind(this)}
-            keyExtractor={(item, index) => index.toString()}
-          />
-        </View>
-
-        <View style={mainStyles.listContainer}>
-          <View style={mainStyles.listHeader}>
-            <Text style={[mainStyles.listTitle]}>Shopping List</Text>
-            <View style={mainStyles.row}>
-              <Text style={mainStyles.small} onPress={() => navigation.navigate("FridgeScreen")}>View all</Text>
-              <StyledButton title="Add" size="sm" color="orange" icon="plus" style={{marginLeft: 10}} onPress={() => console.log("Add new shoppign")} />
-            </View>
-          </View>
-          <FlatList
-            data={this.state.SHOPPING_DATA}
-            numColumns={1}
-            renderItem={this.renderTaskItem.bind(this)}
-            keyExtractor={(item, index) => index.toString()}
-          />
-        </View>
 
       </ScrollView>
     );
