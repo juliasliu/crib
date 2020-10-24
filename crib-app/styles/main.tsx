@@ -34,6 +34,10 @@ const styles = StyleSheet.create({
     color: Colors.gray,
   },
 
+  greenText: {color: Colors.green},
+  orangeText: {color: Colors.orange},
+  yellowText: {color: Colors.yellow},
+
   // Icons
   iconButtonRow: {
     flexDirection: 'row',
@@ -44,9 +48,18 @@ const styles = StyleSheet.create({
   },
 
   // Buttons
-  greenButton: Colors.greenButton,
-  orangeButton: Colors.orangeButton,
-  yellowButton: Colors.yellowButton,
+  greenButton: {
+    backgroundColor: Colors.green,
+    shadowColor: Colors.darkGreen,
+  },
+  orangeButton: {
+    backgroundColor: Colors.orange,
+    shadowColor: Colors.darkOrange,
+  },
+  yellowButton: {
+    backgroundColor: Colors.yellow,
+    shadowColor: Colors.darkYellow,
+  },
   iconButton: {
     alignItems: 'center',
     justifyContent: 'center',

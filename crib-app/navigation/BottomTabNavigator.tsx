@@ -13,6 +13,7 @@ import ListAddScreen from '../screens/Fridge/ListAddScreen';
 
 import HomeScreen from '../screens/Home/HomeScreen';
 import TasksScreen from '../screens/Home/TasksScreen';
+import ChatScreen from '../screens/Home/ChatScreen';
 
 import FinancesScreen from '../screens/FinancesScreen';
 import ProfileScreen from '../screens/ProfileScreen';
@@ -219,7 +220,7 @@ function HomeNavigator() {
       />
       <HomeStack.Screen
         name="ChatScreen"
-        component={TasksScreen}
+        component={ChatScreen}
         options={{ headerTitle: 'Chat' }}
       />
       <HomeStack.Screen
