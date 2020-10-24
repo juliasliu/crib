@@ -30,28 +30,6 @@ const styles = StyleSheet.create({
       marginHorizontal: 20,
   },
 
-  // List styles
-  listContainer: {
-    flex: 1,
-    paddingTop: 0,
-    paddingHorizontal: 10,
-    width: '100%',
-    backgroundColor: Colors.backgroundWhite,
-   },
-   listHeader: {
-     width: '100%',
-     flexDirection: 'row',
-     justifyContent: 'space-between',
-     paddingHorizontal: 10,
-     paddingVertical: 20,
-   },
-   listTitle: {
-     fontSize: 20,
-     paddingVertical: 5,
-     fontWeight: 'bold',
-     color: Colors.darkGray,
-   },
-
   // Modal View
   centeredView: {
     flex: 1,
@@ -72,15 +50,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5
-  },
-
-  // CheckBox
-  checkboxContainer: {
-    flexDirection: "row",
-    marginBottom: 20,
-  },
-  checkbox: {
-    alignSelf: "center",
   },
 });
 

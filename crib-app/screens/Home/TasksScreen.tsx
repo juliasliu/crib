@@ -14,113 +14,131 @@ import {
   Button,
   TouchableOpacity,
   Modal,
-  CheckBox,
 } from 'react-native';
 
 import StyledInput from '../../components/StyledInput';
 import StyledButton from '../../components/StyledButton';
+import TaskItem from '../../components/TaskItem';
 
 import mainStyles from '../../styles/main';
 import styles from '../../styles/home';
 
-export default function TasksScreen() {
+export default class TasksScreen extends React.Component {
 
-  const [isSelected, setSelection] = useState(false);
+  state = {
+      CHORES_DATA: [
+        {
+          id: 0,
+          type: "Chore",
+          title: 'Trash',
+          desc: "Take out the trash.",
+          time: '8 mins',
+          owner: require('../../assets/images/ramen.jpg'),
+          checked: false,
+        },
+        {
+          id: 1,
+          type: "Chore",
+          title: 'Vacuum',
+          desc: "Vacuum the living room.",
+          time: '2 hours',
+          owner: require('../../assets/images/ramen.jpg'),
+          checked: false,
+        },
+        {
+          id: 2,
+          type: "Chore",
+          title: 'Swiffer',
+          desc: "Swiffer the kitchen.",
+          time: '1 week',
+          owner: require('../../assets/images/ramen.jpg'),
+          checked: false,
+        },
+      ],
+      SHOPPING_DATA: [
+        {
+          id: 3,
+          type: "Shopping",
+          title: 'Apples',
+          desc: "1 pack",
+          time: '8 mins',
+          owner: require('../../assets/images/ramen.jpg'),
+          checked: false,
+        },
+        {
+          id: 4,
+          type: "Shopping",
+          title: 'Flour',
+          desc: "1 lbs",
+          time: '2 hours',
+          owner: require('../../assets/images/ramen.jpg'),
+          checked: false,
+        },
+        {
+          id: 5,
+          type: "Shopping",
+          title: 'Milk',
+          desc: "1 gallon",
+          time: '1 week',
+          owner: require('../../assets/images/ramen.jpg'),
+          checked: false,
+        },
+      ],
+  }
 
-  const CHORES_DATA = [
-    {
-      title: 'Trash',
-      desc: "Take out the trash.",
-      time: 'Expires in 8 mins',
-      pic: require('../../assets/images/ramen.jpg'),
-    },
-    {
-      title: 'Vacuum',
-      desc: "Vacuum the living room.",
-      time: 'Expires in 2 hours',
-      pic: require('../../assets/images/ramen.jpg'),
-    },
-    {
-      title: 'Swiffer',
-      desc: "Swiffer the kitchen.",
-      time: 'Expires in 1 week',
-      pic: require('../../assets/images/ramen.jpg'),
-    },
-  ];
+  setToggleCheckBox = (id, type) => {
+    if (type === "Chore") {
+      var tasks = [...this.state.CHORES_DATA];
+      var task = tasks[tasks.findIndex(elem => elem.id === id)];
+      task.checked = !task.checked;
+      this.setState({CHORES_DATA: tasks})
+    } else if (type === "Shopping") {
+      var tasks = [...this.state.SHOPPING_DATA];
+      var task = tasks[tasks.findIndex(elem => elem.id === id)];
+      task.checked = !task.checked;
+      this.setState({SHOPPING_DATA: tasks})
+    }
+  }
 
-  const SHOPPING_DATA = [
-    {
-      title: 'Apples',
-      desc: "1 pack",
-      time: 'Expires in 8 mins',
-      pic: require('../../assets/images/ramen.jpg'),
-    },
-    {
-      title: 'Flour',
-      desc: "1 lbs",
-      time: 'Expires in 2 hours',
-      pic: require('../../assets/images/ramen.jpg'),
-    },
-    {
-      title: 'Milk',
-      desc: "1 gallon",
-      time: 'Expires in 1 week',
-      pic: require('../../assets/images/ramen.jpg'),
-    },
-  ];
-
-  const renderTaskItem = ({item}) => (
-  <View style={mainStyles.listRow}>
-    <Image source={item.pic} style={mainStyles.iconContainer} />
-
-    <View style={mainStyles.infoContainer}>
-      <Text style={mainStyles.infoTitle}>{item.title}</Text>
-      <Text style={mainStyles.infoItem}>{item.desc}</Text>
-    </View>
-    <View style={mainStyles.timeContainer}>
-      <Text style={mainStyles.timeItem}>{item.time}</Text>
-    </View>
-    <View style={styles.checkboxContainer}>
-        <CheckBox
-          value={isSelected}
-          onValueChange={setSelection}
-          style={styles.checkbox}
-        />
-    </View>
-  </View>
+  renderTaskItem = ({item, type}) => (
+    <TaskItem item={item} toggleChecked={this.setToggleCheckBox.bind(this)} />
   )
 
-  return (
-    <ScrollView style={[mainStyles.scroll, mainStyles.container]}>
-      <View style={[mainStyles.contentContainer]}>
-        <Text style={mainStyles.title}>Tasks</Text>
-        <Text style={mainStyles.subtitle}>Earn points by completing tasks on time. Nudge your housemates if a task is idle!</Text>
-      </View>
-
-      <View style={styles.listContainer}>
-        <View style={styles.listHeader}>
-          <Text style={[styles.listTitle]}>Chores</Text>
-          <StyledButton title="Add" size="sm" color="orange" icon="plus" onPress={() => console.log("Add new hcore")} />
+  render() {
+    return (
+      <ScrollView style={[mainStyles.scroll, mainStyles.container]}>
+        <View style={[mainStyles.contentContainer]}>
+          <Text style={mainStyles.title}>Tasks</Text>
+          <Text style={mainStyles.subtitle}>Earn points by completing tasks on time. Nudge your housemates if a task is idle!</Text>
         </View>
-        <FlatList
-          data={CHORES_DATA}
-          numColumns={1}
-          renderItem={renderTaskItem}
-        />
-      </View>
 
-      <View style={styles.listContainer}>
-        <View style={styles.listHeader}>
-          <Text style={[styles.listTitle]}>Shopping List</Text>
-          <StyledButton title="Add" size="sm" color="orange" icon="plus" onPress={() => console.log("Add new hcore")} />
+        <View style={mainStyles.listContainer}>
+          <View style={mainStyles.listHeader}>
+            <Text style={[mainStyles.listTitle]}>Chores</Text>
+            <StyledButton title="Add" size="sm" color="orange" icon="plus" onPress={() => console.log("Add new hcore")} />
+          </View>
+          <FlatList
+            data={this.state.CHORES_DATA}
+            numColumns={1}
+            renderItem={this.renderTaskItem.bind(this)}
+            keyExtractor={(item, index) => index.toString()}
+          />
         </View>
-        <FlatList
-          data={SHOPPING_DATA}
-          numColumns={1}
-          renderItem={renderTaskItem}
-        />
-      </View>
 
-    </ScrollView>
-  );
+        <View style={mainStyles.listContainer}>
+          <View style={mainStyles.listHeader}>
+            <Text style={[mainStyles.listTitle]}>Shopping List</Text>
+            <StyledButton title="Add" size="sm" color="orange" icon="plus" onPress={() => console.log("Add new hcore")} />
+          </View>
+          <FlatList
+            data={this.state.SHOPPING_DATA}
+            numColumns={1}
+            renderItem={this.renderTaskItem.bind(this)}
+            keyExtractor={(item, index) => index.toString()}
+          />
+        </View>
+
+      </ScrollView>
+    );
+  }
 }

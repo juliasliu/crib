@@ -65,60 +65,116 @@ const styles = StyleSheet.create({
     shadowRadius: 0,
   },
 
-
   // Flat lists
   listRow: {
+   flex: 1,
    borderColor: Colors.veryLightGray,
    borderBottomWidth: 1,
    flexDirection: 'row',
-   marginLeft: 10,
-   marginRight: 10,
-   paddingTop: 10,
-   paddingBottom: 10,
+   paddingHorizontal: 20,
  },
+ listContainer: {
+   flex: 1,
+   paddingTop: 0,
+   width: '100%',
+   backgroundColor: Colors.backgroundWhite,
+  },
+  listHeader: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 20,
+    paddingVertical: 20,
+  },
+  listTitle: {
+    fontSize: 20,
+    paddingVertical: 5,
+    fontWeight: 'bold',
+    color: Colors.darkGray,
+  },
 
- iconContainer: { //Can be used as a view conatiner or styling the image itself
-   alignItems: 'center',
-   borderColor: Colors.green,
-   borderRadius: 10,
-   borderWidth: 1,
-   justifyContent: 'center',
-   height: 50,
-   width: 50
- },
+   // CheckBox
+   checkboxContainer: {
+     flex: 1,
+     flexDirection: "row",
+     justifyContent: "flex-start",
+     alignItems: "flex-start",
+     marginBottom: 20,
+     padding: 0,
+   },
+   checkbox: {
+     paddingVertical: 10,
+     paddingHorizontal: 0,
+     margin: 0,
+   },
+   iconContainer: {
+     flex: 1,
+     padding: 10,
+     flexDirection: "row",
+     justifyContent: "flex-start",
+     alignItems: "flex-start",
+   },
+   iconItem: {
+     width: 50,
+     height: 50,
+     borderRadius: 50,
+     borderWidth: 1,
+     borderColor: Colors.lightGray,
+   },
 
  infoContainer: {
-   flex: 1,
-   paddingLeft: 20,
-   paddingRight: 20,
+   flex: 4,
+   padding: 10,
    flexDirection: "column",
+   },
+  infoTitle: {
+    color: Colors.darkGray,
+    fontSize: 18,
+    fontWeight: 'bold'
+  },
+  infoItem: {
+    color: Colors.gray,
+    textAlign: 'left',
+    fontSize: 14,
+    fontWeight: 'bold'
    },
 
  timeContainer: {
-   flex:1,
-   paddingRight: 25,
+   flex: 2,
+   paddingVertical: 10,
    flexDirection: "row",
-   alignItems: "baseline",
-   justifyContent: "flex-end"
+   justifyContent: 'flex-start',
+   alignItems: "flex-start",
+ },
+  timeItem: {
+    color: Colors.gray,
+    fontSize: 14,
+    paddingTop: 4,
+  },
+ avatarContainer: {
+   flex: 1,
+   paddingVertical: 10,
+   flexDirection: "row",
+   justifyContent: "flex-end",
+   alignItems: "flex-start",
+ },
+ avatar: {
+   borderRadius: 40,
+   borderWidth: 1,
+   height: 40,
+   width: 40
+ },
+ caretContainer: {
+   flex: 1,
+   paddingVertical: 10,
+   justifyContent: 'flex-start',
+   alignItems: "flex-end",
+ },
+ caret: {
+   color: Colors.gray,
  },
 
- infoTitle: {
-   color: Colors.darkGray,
-   fontSize: 20,
-   fontWeight: 'bold'
-  },
 
- infoItem: {
-   textAlign: 'left',
-   fontSize: 13.5,
-  },
- buttonItem:{
-   fontSize: 16,
-  },
- timeItem: {
-   color: 'gray',
-   fontSize: 13.5,
- },
 });
 
 export default styles;
