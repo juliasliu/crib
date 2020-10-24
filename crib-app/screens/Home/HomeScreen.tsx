@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from "react";
 import Icon from '@expo/vector-icons/FontAwesome';
 import { Ionicons } from '@expo/vector-icons';
 import {
@@ -16,6 +16,7 @@ import {
   Modal,
 } from 'react-native';
 
+import StyledInput from '../../components/StyledInput';
 import StyledButton from '../../components/StyledButton';
 import UserItem from '../../components/UserItem';
 
@@ -24,11 +25,7 @@ import styles from '../../styles/home';
 
 export default function HomeScreen({ navigation }) {
 
-  let modalVisible = false;
-
-  const setModalVisible = (visible) => {
-    modalVisible = visible;
-  }
+  const [modalVisible, setModalVisible] = useState(false);
 
   const POINTS_DATA = [
     {
@@ -71,20 +68,17 @@ export default function HomeScreen({ navigation }) {
           Alert.alert("Modal has been closed.");
         }}
       >
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}>Hello World!</Text>
+        <ScrollView contentContainerStyle={[styles.centeredView]}>
+          <View style={[mainStyles.scroll, mainStyles.container, styles.modalView]}>
+            <Text style={mainStyles.title}>Invite User</Text>
+            <Text style={mainStyles.subtitle}>Grow your house by inviting new members!</Text>
 
-            <TouchableOpacity
-              style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
-              onPress={() => {
-                setModalVisible(!modalVisible);
-              }}
-            >
-              <Text style={styles.textStyle}>Hide Modal</Text>
-            </TouchableOpacity>
+            <StyledInput type="text" label="House code" value="12345" icon="hashtag" description="You can send the user your customized house code" editable={false} />
+            <StyledInput type="text" label="Username" icon="search" placeholder="Search by username" description="You can send the user an invite to your house" />
+            <StyledButton title="Add User" color="green" icon="plus" onPress={() => console.log("hi")} style={{marginTop: 20}}/>
+            <StyledButton title="Close" color="orange" icon="close" onPress={() => setModalVisible(!modalVisible)} style={{marginTop: 20}}/>
           </View>
-        </View>
+        </ScrollView>
       </Modal>
 
       <View style={styles.homeGraphicContainer}>
@@ -95,37 +89,26 @@ export default function HomeScreen({ navigation }) {
           />
         </View>
         <View style={styles.homeGraphicButtons}>
-          <View>
-            <TouchableOpacity
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate("ChatScreen")
+            }}
+            style={[mainStyles.iconButton, styles.homeGraphicButton]}>
+            <Ionicons name="ios-chatbubbles" size={20} style={mainStyles.icon}></Ionicons>
+          </TouchableOpacity>
+          <TouchableOpacity
               onPress={() => {
-                setModalVisible(true);
+                navigation.navigate("TasksScreen")
               }}
               style={[mainStyles.iconButton, styles.homeGraphicButton]}>
-              <Ionicons name="ios-chatbubbles" size={20} style={mainStyles.icon}></Ionicons>
-            </TouchableOpacity>
-          </View>
-          <View>
-            <TouchableOpacity
-              onPress={() => {
-                setModalVisible(true);
-              }}
-              style={[mainStyles.iconButton, styles.homeGraphicButton]}>
-              <Ionicons name="ios-notifications" size={20} style={mainStyles.icon}></Ionicons>
-            </TouchableOpacity>
-            <TouchableOpacity
-                onPress={() => {
-                  setModalVisible(true);
-                }}
-                style={[mainStyles.iconButton, styles.homeGraphicButton]}>
-                <Ionicons name="ios-list" size={20} style={mainStyles.icon}></Ionicons>
-            </TouchableOpacity>
-          </View>
+              <Ionicons name="ios-list" size={20} style={mainStyles.icon}></Ionicons>
+          </TouchableOpacity>
         </View>
       </View>
       <View style={styles.listContainer}>
         <View style={styles.listHeader}>
           <Text style={[styles.listTitle]}>Housemates</Text>
-          <StyledButton title="Invite" size="sm" color="orange" icon="plus" onPress={() => navigation.navigate("InviteScreen")} />
+          <StyledButton title="Invite" size="sm" color="orange" icon="plus" onPress={() => setModalVisible(true)} />
         </View>
         <FlatList
           data={POINTS_DATA}

@@ -12,7 +12,7 @@ import InventoryAddScreen from '../screens/Fridge/InventoryAddScreen';
 import ListAddScreen from '../screens/Fridge/ListAddScreen';
 
 import HomeScreen from '../screens/Home/HomeScreen';
-import InviteHousemateScreen from '../screens/Home/InviteHousemateScreen';
+import TasksScreen from '../screens/Home/TasksScreen';
 
 import FinancesScreen from '../screens/FinancesScreen';
 import ProfileScreen from '../screens/ProfileScreen';
@@ -201,9 +201,14 @@ function HomeNavigator() {
         }}
       />
       <HomeStack.Screen
-        name="InviteScreen"
-        component={InviteHousemateScreen}
-        options={{ headerTitle: 'Invite' }}
+        name="TasksScreen"
+        component={TasksScreen}
+        options={{ headerTitle: 'Tasks' }}
+      />
+      <HomeStack.Screen
+        name="ChatScreen"
+        component={TasksScreen}
+        options={{ headerTitle: 'Chat' }}
       />
       <HomeStack.Screen
         name="ProfileScreen"
