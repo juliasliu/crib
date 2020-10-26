@@ -26,9 +26,13 @@ export default class App extends React.Component{
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Sign In</Text>
-            <StyledInput type="email" placeholder="Email"  editable={true} style={styles.input}/>
-            <StyledInput type="password" placeholder="Password"  editable={true} style={styles.input}/>
-            <StyledButton title="Sign In" color="green" onPress={()=>alert('signed in')} style={{width:"25%", marginTop: 20}}/>
+            <View style ={styles.containerInput}>   
+                <StyledInput type="text" label="Email"  description="Please enter a valid email address" style={styles.inputField}/>
+                <StyledInput type="password" label="Password"  description="Please enter your password" style={styles.inputField}/>
+                <View style={styles.container}>
+                    <StyledButton title="Sign in" color="green" onPress={()=>alert('signed in!')} style={{width:"100%", alginItems:'center'}}/>
+                </View>
+            </View>
         </View>
         );
     }
