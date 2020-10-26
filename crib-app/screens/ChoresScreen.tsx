@@ -23,21 +23,9 @@ export default function LandingScreen({ navigation }) {
       <Image source={pic} style={styles.logo} />
       <Text style={styles.title}>Crib</Text>
       <Text style ={styles.text}>insert catch phrase</Text>
-
-      <View style = {styles.button}>
-        <TouchableOpacity
-          style={styles.signInButton} 
-          onPress={()=>navigation.navigate('SignInScreen')}>
-            <Text style = {styles.textSign}>Sign In</Text>
-        </TouchableOpacity>
-      </View>
-      <View style = {styles.button}>
-        <TouchableOpacity 
-          style={styles.registerButton} 
-          onPress={()=>navigation.navigate('RegisterScreen')}>          
-          <Text style = {styles.textReg}>Register</Text>
-        </TouchableOpacity>
-      </View>
+      <StyledButton title="Sign In" color="green" onPress={()=>navigation.navigate('SignInScreen')} style={{width:"60%", marginTop: 20}}/>
+      <StyledButton title="Register" color="orange" onPress={()=>navigation.navigate('RegisterScreen')} style={{width:"60%", marginTop: 20}}/>
+      
 
     </View>
   );

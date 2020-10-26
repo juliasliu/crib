@@ -59,7 +59,8 @@ export default function StyledInput({ type, label, value, icon, placeholder, des
                editable={editable}/>
           ) : type === "password" ? (
             <TextInput style = {[styles.input, style, !editable && { color: Colors.darkGray } ]}
-               underlineColorAndroid = "transparent"
+              secureTextEntry 
+              underlineColorAndroid = "transparent"
                value = {value}
                placeholder = {placeholder}
                autoCapitalize = "none"
