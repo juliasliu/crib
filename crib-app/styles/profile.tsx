@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   scroll: {
-    backgroundColor: Colors.green,
+    backgroundColor:'#fff',
   },
   profileContainer: {
     backgroundColor: '#fff',
@@ -118,7 +118,6 @@ const styles = StyleSheet.create({
    },
 
   infoItem: {
-    paddingLeft: 10,
     textAlign: 'left',
     fontSize: 13.5,
    },
