@@ -22,7 +22,7 @@ import {
 } from 'react-native';
 
 import styles from '../styles/profile';
-
+import StyledButton from '../components/StyledButton'
 const POINTS_DATA = [
   {
     title: 'Trash',
@@ -124,13 +124,8 @@ export default function ProfileScreen() {
       <Text style={styles.infoTitle}>{item.title}</Text>
       <Text style={styles.infoItem}>{item.desc}</Text>
 
-        <TouchableOpacity
-          activeOpacity={0.8}
-          onPress={handlePress}
-          style={styles.choresButton}
-        >
-          <Text style={styles.buttonItem}>Mark Done</Text>
-        </TouchableOpacity>
+      <StyledButton title="Mark Done" color="green" onPress={handlePress} style={styles.choresButton}/>
+      
 
     </View>
     <View style={styles.timeContainer}>
@@ -139,8 +134,16 @@ export default function ProfileScreen() {
   </View>
   )
 
-  function handlePress() {
+  /*  <TouchableOpacity
+          activeOpacity={0.8}
+          onPress={handlePress}
+          style={styles.choresButton}
+        >
+          <Text style={styles.buttonItem}>Mark Done</Text>
+        </TouchableOpacity>*/
 
+  function handlePress() {
+     alert('signed in')
   }
 
   function Points(props) {
