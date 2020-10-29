@@ -7,14 +7,16 @@ import {
   Text,
   View,
   TouchableHighlight,
+  TouchableOpacity
 } from 'react-native';
+import mainStyles from '../styles/main';
+import Colors from '../constants/Colors';
 
 interface Props {
   onTextPress: any
   item: any
   pic: any
 }
-
 let TEST_DATA =  [{
   name: 'Kobe',
   requested: false,
@@ -45,12 +47,11 @@ class FinancesListItem extends React.Component<Props, {collapse:boolean}> {
 
   render() {
     return (
-      <View style={styles.itemContainer}>        
-        <TouchableHighlight 
-          activeOpacity={0.6}
-          underlayColor="#DDDDDD"
+      <View style={styles.financeItemContainer}>         
+        <TouchableOpacity
+          activeOpacity={0.8}
+          style={styles.itemContainer}
           onPress={this.handleTextPress}
-          style={styles.touchableHighlight}
         >
         <View style={styles.titleRow}>
             <Image source={this.props.pic} style={styles.iconContainer} />
@@ -59,7 +60,7 @@ class FinancesListItem extends React.Component<Props, {collapse:boolean}> {
               </Text>
         </View>
 
-        </TouchableHighlight>
+        </TouchableOpacity>
           {
             !this.state.collapse ? 
             <View style={styles.textContainer}>
@@ -108,7 +109,7 @@ class FinancesListItem extends React.Component<Props, {collapse:boolean}> {
       marginBottom: 1,
       height: 30
     },
-    itemContainer: {
+    financeItemContainer: {
       flex: 1,
       borderColor: '#f1f1f1',
       borderBottomWidth: 1,
@@ -116,10 +117,29 @@ class FinancesListItem extends React.Component<Props, {collapse:boolean}> {
       fontSize: 26
       
     },
+
+    itemContainer: {
+      flex: 1,
+      borderRadius: 10,
+      flexDirection: 'row',
+      padding: 10,
+      marginVertical: 10,
+      backgroundColor: Colors.white,
+      shadowColor: Colors.veryLightGray,
+      shadowOffset: {
+        width: 0,
+        height: 5,
+      },
+      shadowOpacity: 1,
+      shadowRadius: 0,
+      elevation: 8,
+    },
+
     touchableHighlight:{
       paddingLeft:10,
       borderRadius:20,
     },
+
     titleRow: {
       flexDirection: 'row',
       marginLeft: 0,
