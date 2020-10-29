@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   scroll: {
-    backgroundColor: Colors.green,
+    backgroundColor:'#fff',
   },
   profileContainer: {
     backgroundColor: '#fff',
@@ -98,13 +98,13 @@ const styles = StyleSheet.create({
   infoContainer: {
     flex: 1,
     paddingLeft: 20,
-    paddingRight: 20,
+    paddingRight: 0,
     flexDirection: "column",
     },
 
   timeContainer: {
     flex:1,
-    paddingLeft: 25,
+    paddingLeft: 0,
     paddingRight: 25,
     flexDirection: "row",
     alignItems: "baseline",
@@ -118,7 +118,6 @@ const styles = StyleSheet.create({
    },
 
   infoItem: {
-    paddingLeft: 10,
     textAlign: 'left',
     fontSize: 13.5,
    },
@@ -134,7 +133,6 @@ const styles = StyleSheet.create({
     flex:0, //fix??? hard coded button width
     width:100,
     elevation: 10,
-    backgroundColor: "#E8E8E8",
     borderRadius: 10, //how rounded it is
     paddingVertical: 5,
     paddingHorizontal: 0,
