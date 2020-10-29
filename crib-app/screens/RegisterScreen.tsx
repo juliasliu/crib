@@ -15,6 +15,7 @@ import StyledInput from '../components/StyledInput'
 import styles from '../styles/landing';
 import Colors from '../constants/Colors'
 import { TextInput } from 'react-native-gesture-handler';
+import { Input } from 'react-native-elements';
 
 
 export default class App extends React.Component{
@@ -27,13 +28,17 @@ export default class App extends React.Component{
     render(){
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Sign In</Text>
-            <StyledInput type="text" placeholder="Name"  editable={true} style={styles.input}/>
-            <StyledInput type="email" placeholder="Email"  editable={true} style={styles.input}/>
-            <StyledInput type="text" placeholder="Username"  editable={true} style={styles.input}/>
-            <StyledInput type="password" placeholder="Password"  editable={true} style={styles.input}/>
-            <StyledInput type="text" placeholder="Housecode"  editable={true} style={styles.input}/>
-            <StyledButton title="Register" color="green" onPress={()=>alert('registered!')} style={{width:"25%", marginTop: 20}}/>
+            <Text style={styles.title}>Register</Text>
+            <View style ={styles.containerInputReg}>   
+            <StyledInput type="text" label="Username" description="This is how your housemates can find you" style={styles.inputField}/>
+            <StyledInput type="text" label="Email"  description="Please enter a valid email address"style={styles.inputField}/>
+            <StyledInput type="password" label="Password"  description="Please create a unique password"style={styles.inputField}/>
+            <StyledInput type="text" label="House code"  description="You can enter a house code here"style={styles.inputField}/>
+            <View style={styles.container}>
+            <StyledButton title="Register" color="green" onPress={()=>alert('registered!')} style={{width:"100%", alginItems:'center'}}/>
+            </View>
+            </View>  
+
         </View>
         );
     }

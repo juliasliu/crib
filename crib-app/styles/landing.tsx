@@ -8,35 +8,42 @@ const styles = StyleSheet.create({
     container: {
       backgroundColor: '#fff',
       flex: 1,
-      height: deviceHeight,
-      width: deviceWidth,
       alignItems: 'center',
       justifyContent: 'center'
+    },
+    containerInput: {
+        backgroundColor: '#fff',
+        flex: 0.60,
+    },    
+    containerInputReg: {
+        backgroundColor: '#fff',
+        flex: 1,
     },
     title: {
         color: '#1cad61',
         fontSize: 50,
         fontWeight: 'bold',
+        margin:10,
     },
     text: {
         color: 'black',
         marginTop:0
     },
     logo: {
-        width: 0.3*deviceWidth,
-        height:0.3*deviceHeight,
+        width: "50%",
+        height:"30%",
         resizeMode: "contain",
         padding: 0
     },
 
-    input:{
-        width: 0.5*deviceHeight,
+    inputField:{
+        width: 0.8*deviceHeight,
         height: 40,
         backgroundColor: "#E8E8E8",
-        borderRadius:25,
+        borderRadius:10,
         justifyContent:"center",
         padding:20,
-    },
+    }
 
   });
 
