@@ -22,7 +22,7 @@ export default function LandingScreen({ navigation }) {
     <View style={styles.container}>
       <Image source={pic} style={styles.logo} />
       <Text style={styles.title}>Crib</Text>
-      <Text style ={styles.text}>insert catch phrase</Text>
+      <Text style ={styles.text}>the Grocery and Household App</Text>
       <StyledButton title="Sign In" color="green" onPress={()=>navigation.navigate('SignInScreen')} style={{width:"60%", marginTop: 20}}/>
       <StyledButton title="Register" color="orange" onPress={()=>navigation.navigate('RegisterScreen')} style={{width:"60%", marginTop: 20}}/>
       

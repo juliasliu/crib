@@ -11,33 +11,33 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center'
     },
+    containerScroll: {
+        backgroundColor: '#fff',
+        flex:1,
+    },    
     containerInput: {
         backgroundColor: '#fff',
-        flex: 0.60,
-    },    
-    containerInputReg: {
-        backgroundColor: '#fff',
-        flex: 1,
+        width: 0.8*deviceWidth,
     },
     title: {
         color: '#1cad61',
-        fontSize: 50,
+        fontSize: 60,
         fontWeight: 'bold',
-        margin:10,
+        marginTop:5,
     },
     text: {
-        color: 'black',
+        color: Colors.orange,
+        fontSize:15,
+        fontWeight: 'bold',
         marginTop:0
     },
     logo: {
-        width: "50%",
-        height:"30%",
-        resizeMode: "contain",
-        padding: 0
+        width: "60%",
+        height:"32%",
+        resizeMode: "cover",
     },
 
     inputField:{
-        width: 0.8*deviceHeight,
         height: 40,
         backgroundColor: "#E8E8E8",
         borderRadius:10,
