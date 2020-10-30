@@ -19,7 +19,7 @@ import RegisterScreen from '../screens/RegisterScreen';
 export default class Navigation extends React.Component {
 
   componentDidMount() {
-		if (this.props.users) this.props.users.loginStatus()
+		this.props.users.loginStatus()
 	}
 
   render() {
@@ -28,7 +28,7 @@ export default class Navigation extends React.Component {
         linking={LinkingConfiguration}
         theme={ColorSchemeName === 'dark' ? DarkTheme : DefaultTheme}>
         {
-          this.props.users && this.props.users.isLoggedIn ?
+          this.props.users.isLoggedIn ?
           <RootNavigator /> : <LandingNavigator />
         }
       </NavigationContainer>

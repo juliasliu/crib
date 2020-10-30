@@ -20,6 +20,8 @@ class Users {
 				email: email,
 				password: password,
 		}
+    console.log(user);
+    return;
 
 		return new Promise(function(resolve, reject) {
 			axios.post(API_ROOT + '/login', {user}, {withCredentials: true})
@@ -62,7 +64,7 @@ class Users {
 		})
 	}
 
-	@action register = function(email, name, username, password, house_code) {
+	@action register = function(username, name, email, password, house_code) {
 		this.busy = true;
 		let that = this;	// have to reassign because 'this' changes scope within the promise.then
 
@@ -73,6 +75,8 @@ class Users {
 				password: password,
 				house_code: house_code,
 		}
+    console.log(user);
+    return;
 
 		return new Promise(function(resolve, reject) {
 			// validate password confirmation

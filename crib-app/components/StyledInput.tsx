@@ -18,17 +18,7 @@ import {
 } from 'react-native';
 import Colors from '../constants/Colors';
 
-export default function StyledInput({ type, label, value, icon, placeholder, description, size, color, style, editable }) {
-
-  const handleText = () => {
-
-  }
-  const handleEmail = () => {
-
-  }
-  const handlePassword = () => {
-
-  }
+export default function StyledInput({ type, label, value, icon, placeholder, description, size, color, style, editable, handleValue }) {
 
   return (
     <View style={styles.inputContainer}>
@@ -50,8 +40,7 @@ export default function StyledInput({ type, label, value, icon, placeholder, des
                value = {value}
                placeholder = {placeholder}
                autoCapitalize = "none"
-               onFocus = {handleText}
-               onChangeText = {handleText}
+               onChangeText = {handleValue}
                editable={editable}/>
           ) : type === "email" ? (
             <TextInput style = {[styles.input, style, !editable && { color: Colors.darkGray }]}
@@ -59,7 +48,7 @@ export default function StyledInput({ type, label, value, icon, placeholder, des
                value = {value}
                placeholder = {placeholder}
                autoCapitalize = "none"
-               onChangeText = {handleEmail}
+               onChangeText = {handleValue}
                editable={editable}/>
           ) : type === "password" ? (
             <TextInput style = {[styles.input, style, !editable && { color: Colors.darkGray } ]}
@@ -68,7 +57,7 @@ export default function StyledInput({ type, label, value, icon, placeholder, des
                value = {value}
                placeholder = {placeholder}
                autoCapitalize = "none"
-               onChangeText = {handlePassword}
+               onChangeText = {handleValue}
                editable={editable}/>
           ) : null
         }
