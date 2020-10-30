@@ -3,15 +3,24 @@ export type RootStackParamList = {
   NotFound: undefined;
 };
 
+export type LandingStackParamList = {
+  Landing: undefined;
+  SignIn: undefined;
+  Register: undefined;
+};
+
 export type BottomTabParamList = {
-  TabOne: undefined;
-  TabTwo: undefined;
+  Chores: undefined;
+  Fridge: undefined;
+  Home: undefined;
+  Finances: undefined;
+  Profile: undefined;
 };
 
 export type TabOneParamList = {
-  TabOneScreen: undefined;
+  Chores: undefined;
 };
 
 export type TabTwoParamList = {
-  TabTwoScreen: undefined;
+  Fridge: undefined;
 };

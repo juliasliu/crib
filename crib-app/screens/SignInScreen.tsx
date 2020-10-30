@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {
-  TouchableOpacity, 
+  TouchableOpacity,
   Dimensions,
   StyleSheet,
   Button,
@@ -19,28 +19,27 @@ import { TextInput } from 'react-native-gesture-handler';
 import mainStyles from '../styles/main';
 
 
-export default class App extends React.Component{
+export default class App extends React.Component {
     state={
         email:"",
         password:"",
     }
     render(){
-    return (
-        <View style={styles.container}>
-            <ScrollView style ={styles.containerInput}>
-            <View style={styles.container}>   
-                <Text style={[styles.title, {marginTop: 100}]}>Sign In</Text>
+      return (
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <View style={[mainStyles.container, styles.container]}>
+            <View style={[styles.landingContainer]}>
+              <Text style={[styles.title, {marginVertical: 20}]}>Sign In</Text>
+
+              <StyledInput type="text" label="Email" icon="envelope" placeholder="Please enter your email address"/>
+              <StyledInput type="password" label="Password" icon="lock" placeholder="Please enter your password"/>
+
+              <StyledButton title="Sign In" color="green" onPress={()=>alert('registered!')} style={{marginVertical: 10}}/>
+              <StyledButton title="Back" color="white" onPress={()=>this.props.navigation.navigate('Landing')} style={{marginVertical: 10}}/>
+
             </View>
-            <StyledInput type="text" label="Email"  description="Please enter your email address"style={styles.inputField}/>
-            <StyledInput type="password" label="Password"  description="Please enter your password"style={styles.inputField}/>
-            <View style={styles.container}>
-                <StyledButton title="Sign In" color="green" onPress={()=>alert('registered!')} style={{width:"100%", alginItems:'center', margin: 15}}/>
-            </View>
-            </ScrollView>  
         </View>
-        
-        );
+      </ScrollView>
+      );
     }
 }
-
-

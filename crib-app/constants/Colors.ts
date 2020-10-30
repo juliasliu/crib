@@ -7,6 +7,12 @@ const darkOrange = '#c46818';
 const yellow = '#e8da5a';
 const darkYellow = '#baac29';
 
+const facebook = '#4267B2';
+const darkFacebook = '#3b5998';
+
+const apple = '#000';
+const darkApple = '#000';
+
 const white = '#fff';
 const backgroundWhite = '#f5f5f5';
 
@@ -25,6 +31,10 @@ export default {
   darkOrange: darkOrange,
   yellow: yellow,
   darkYellow: darkYellow,
+  facebook: facebook,
+  darkFacebook: darkFacebook,
+  apple: apple,
+  darkApple: darkApple,
   white: white,
   backgroundWhite: backgroundWhite,
   veryLightGray: veryLightGray,
@@ -33,7 +43,7 @@ export default {
   darkGray: darkGray,
   light: {
     text: '#000',
-    background: '#fff',
+    background: backgroundWhite,
     tint: tintColorLight,
     tabIconDefault: gray,
     tabIconSelected: tintColorLight,

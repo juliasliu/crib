@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {
-  TouchableOpacity, 
+  TouchableOpacity,
   Dimensions,
   StyleSheet,
   Button,
@@ -19,32 +19,32 @@ import Colors from '../constants/Colors'
 import { TextInput } from 'react-native-gesture-handler';
 import { Input } from 'react-native-elements';
 
-
-export default class App extends React.Component{
-    state={
-        name:"",
-        email:"",
-        password:"",
-        houseCode:"",
+export default class App extends React.Component {
+    state = {
+        name: "",
+        email: "",
+        password: "",
+        houseCode: "",
     }
-    render(){
-    return (
-        <View style={styles.container}>
-            <ScrollView style ={styles.containerInput}>
-            <View style={styles.container}>   
-                <Text style={[styles.title, {color:"#ea832a"}]}>Register</Text>
+
+    render() {
+      return (
+          <ScrollView showsVerticalScrollIndicator={false}>
+            <View style={[mainStyles.container, styles.container]}>
+              <View style={[styles.landingContainer]}>
+                <Text style={[styles.title, {color: Colors.orange, marginVertical: 20}]}>Register</Text>
+
+                <StyledInput type="text" color="orange" label="Username" icon="at" placeholder="Please enter your unique username" description="This is how your housemates can find you. You can change this later."/>
+                <StyledInput type="text" color="orange" label="Name" icon="user" placeholder="Please enter your full name"/>
+                <StyledInput type="text" color="orange" label="Email" icon="envelope" placeholder="Please enter a valid email address"/>
+                <StyledInput type="password" color="orange" label="Password" icon="lock" placeholder="Please create a unique password"/>
+                <StyledInput type="text" color="orange" label="House code" icon="hashtag" placeholder="You can enter a house code here" description="If you are the first user to create an account for your house, leave this blank."/>
+
+                <StyledButton title="Register" color="orange" onPress={()=>alert('registered!')} style={{marginVertical: 10}}/>
+                <StyledButton title="Back" color="white" onPress={()=>this.props.navigation.navigate('Landing')} style={{marginVertical: 10}}/>
+              </View>
             </View>
-            <StyledInput type="text" color="orange" label="Username" description="This is how your housemates can find you" style={styles.inputField}/>
-            <StyledInput type="text" color="orange" label="Email"  description="Please enter a valid email address"style={styles.inputField}/>
-            <StyledInput type="password" color="orange" label="Password"  description="Please create a unique password"style={styles.inputField}/>
-            <StyledInput type="text" color="orange" label="House code"  description="You can enter a house code here"style={styles.inputField}/>
-            <View style={styles.container}>
-                <StyledButton title="Register" color="orange" onPress={()=>alert('registered!')} style={{width:"100%", alginItems:'center', margin: 15}}/>
-            </View>
-            </ScrollView>  
-        </View>
-        );
+          </ScrollView>
+      );
     }
 }
-
-
