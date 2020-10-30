@@ -198,6 +198,40 @@ const styles = StyleSheet.create({
  },
 
 
+ // Inputs
+ input: {
+		backgroundColor: '#fff',
+		height: 45,
+		marginVertical: 10,
+		padding: 10,
+		fontSize: 14,
+		borderRadius: 20,
+		borderColor: "#e1e7ed",
+		borderWidth: 1,
+		shadowColor: "#e1e7ed",
+		shadowOffset: {
+			width: 0,
+			height: 5,
+		},
+		shadowOpacity: 1,
+		shadowRadius: 0,
+		elevation: 1,
+	},
+ searchInput: {
+ 		display: 'flex',
+ 		flexDirection: 'row',
+ 		alignItems: 'center',
+ 		shadowColor: 'transparent',
+ 		padding: 10,
+ 	},
+  searchInputText: {
+		width: '100%',
+	},
+  buttonIcon: {
+		color: '#515d6e',
+		paddingHorizontal: 5,
+		fontSize: 18,
+	},
 });
 
 export default styles;

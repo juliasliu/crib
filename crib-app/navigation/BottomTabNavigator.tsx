@@ -176,17 +176,20 @@ function FridgeNavigator() {
       <FridgeStack.Screen
         name="FridgeScreen"
         component={FridgeScreen}
-        options={{ headerTitle: 'Fridge' }}
+        options={{ headerTitle: 'Fridge',
+        headerTintColor: Colors.darkGray, }}
       />
       <FridgeStack.Screen
         name="InventoryAddScreen"
         component={InventoryAddScreen}
-        options={{ headerTitle: 'Fridge' }}
+        options={{ headerTitle: 'Fridge',
+        headerTintColor: Colors.darkGray, }}
       />
       <FridgeStack.Screen
         name="ListAddScreen"
         component={ListAddScreen}
-        options={{ headerTitle: 'Fridge' }}
+        options={{ headerTitle: 'Fridge',
+        headerTintColor: Colors.darkGray, }}
       />
     </FridgeStack.Navigator>
   );
@@ -211,17 +214,20 @@ function HomeNavigator() {
               style={{paddingHorizontal: 20}}
             />
           ),
+          headerTintColor: Colors.darkGray,
         }}
       />
       <HomeStack.Screen
         name="TasksScreen"
         component={TasksScreen}
-        options={{ headerTitle: 'Tasks' }}
+        options={{ headerTitle: 'Tasks',
+        headerTintColor: Colors.darkGray, }}
       />
       <HomeStack.Screen
         name="ChatScreen"
         component={ChatScreen}
-        options={{ headerTitle: 'Chat' }}
+        options={{ headerTitle: 'Chat',
+        headerTintColor: Colors.darkGray, }}
       />
       <HomeStack.Screen
         name="ProfileScreen"
@@ -252,7 +258,8 @@ function FinancesNavigator() {
       <FinancesStack.Screen
         name="FinancesScreen"
         component={FinancesScreen}
-        options={{ headerTitle: 'Finances' }}
+        options={{ headerTitle: 'Finances',
+        headerTintColor: Colors.darkGray, }}
       />
     </FinancesStack.Navigator>
   );
@@ -275,9 +282,6 @@ function ProfileNavigator() {
              borderBottomWidth: 0,
            },
            headerTintColor: '#fff',
-           headerTitleStyle: {
-             fontWeight: 'bold',
-           },
        }}
       />
     </ProfileStack.Navigator>

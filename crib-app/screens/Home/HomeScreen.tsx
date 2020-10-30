@@ -75,8 +75,8 @@ export default function HomeScreen({ navigation }) {
             <Text style={mainStyles.title}>Invite User</Text>
             <Text style={mainStyles.subtitle}>Grow your house by inviting new members!</Text>
 
-            <StyledInput type="text" label="House code" value="12345" icon="hashtag" description="You can send the user your customized house code" editable={false} />
-            <StyledInput type="text" label="Username" icon="search" placeholder="Search by username" description="You can send the user an invite to your house" />
+            <StyledInput type="text" label="House code" value="12345" icon="hashtag" description="You can send the user your customized house code" color="green" editable={false} />
+            <StyledInput type="text" label="Username" icon="search" placeholder="Search by username" description="You can send the user an invite to your house" color="green" />
             <StyledButton title="Add User" color="green" icon="plus" onPress={() => console.log("hi")} style={{marginTop: 20}}/>
             <StyledButton title="Close" color="orange" icon="close" onPress={() => setModalVisible(!modalVisible)} style={{marginTop: 20}}/>
           </View>
