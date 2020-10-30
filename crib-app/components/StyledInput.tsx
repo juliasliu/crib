@@ -18,7 +18,7 @@ import {
 } from 'react-native';
 import Colors from '../constants/Colors';
 
-export default function StyledInput({ type, label, value, icon, placeholder, description, size, style, editable }) {
+export default function StyledInput({ type, label, value, icon, placeholder, description, size, color, style, editable }) {
 
   const handleText = () => {
 
@@ -32,7 +32,11 @@ export default function StyledInput({ type, label, value, icon, placeholder, des
 
   return (
     <View style={styles.inputContainer}>
-      <Text style={styles.inputLabel}>
+      <Text style={[styles.inputLabel,
+      color === "green" && {color: Colors.green},
+      color === "orange" && {color: Colors.orange},
+      color === "yellow" && {color: Colors.yellow},
+    ]}>
         {label}
       </Text>
       <View style={styles.inputIconContainer}>
@@ -59,7 +63,7 @@ export default function StyledInput({ type, label, value, icon, placeholder, des
                editable={editable}/>
           ) : type === "password" ? (
             <TextInput style = {[styles.input, style, !editable && { color: Colors.darkGray } ]}
-              secureTextEntry 
+              secureTextEntry
               underlineColorAndroid = "transparent"
                value = {value}
                placeholder = {placeholder}
