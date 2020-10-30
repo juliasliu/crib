@@ -2,7 +2,10 @@ import * as React from 'react';
 import { StyleSheet, TextInput, TouchableOpacity,  Text, View, KeyboardAvoidingView, Platform } from 'react-native';
 
 import styles from '../../styles/fridgeAdd';
-
+import mainStyles from '../../styles/main'
+import StyledButton from '../../components/StyledButton'
+import StyledInput from '../../components/StyledInput'
+import Colors from '../../constants/Colors'
 
 export default function InventoryAddScreen({ navigation }) {
     const [name, setName] = React.useState('');
@@ -13,97 +16,39 @@ export default function InventoryAddScreen({ navigation }) {
 
     return (
     <KeyboardAvoidingView behavior={Platform.OS == "ios" ? "padding" : "height"} style={styles.container}>
-        <View style={styles.titleContainer}>
+        <View style = {{flex:0.1, backgroundColor:Colors.green, alignSelf:'stretch', marginBottom:20, alignItems:'flex-start', paddingTop:20}}>
             <Text style={styles.titleText}>Add Item to Inventory</Text>
-        </View>
+        </View> 
+        <View style = {[styles.container,{flex:0.8}]}>
         <View style={styles.rowContainer}>
-            <View style={styles.fieldContainer}>
-                <View style={styles.textContainer}>
-                    <Text style={styles.nameText}>Item Name</Text>
-                </View>
-                <View style={styles.inputContainer}>
-                    <TextInput
-                        style={styles.nameInput}
-                        placeholder="Add Item Name"
-                        placeholderTextColor="gray"
-                        onChangeText={name => setName(name)}
-                        defaultValue={name}
-                    />
-                </View>
-
-            </View>
-            <View style={styles.fieldContainer}>
-                <View style={styles.textContainer}>
-                    <Text style={styles.ownerText}>Owner</Text>
-                </View>
-                <View style={styles.inputContainer}>
-                    <TextInput
-                        style={styles.ownerInput}
-                        placeholder="Add Owner"
-                        placeholderTextColor="gray"
-                        onChangeText={owner => setOwner(owner)}
-                        defaultValue={owner}
-                    />
-                </View>
-
+            <View style={[styles.fieldContainer, {paddingStart: 20,}]}>
+                <StyledInput type="text" icon = "plus" label="Item" value = "add item" />
             </View>
         </View>
         <View style={styles.rowContainer}>
-            <View style={styles.fieldContainer}>
-                <View style={styles.textContainer}>
-                    <Text style={styles.quantityText}>Quantity</Text>
-                </View>
-                <View style={styles.inputContainer}>
-                    <TextInput
-                        style={styles.quantityInput}
-                        placeholder="0"
-                        keyboardType='decimal-pad'
-                        placeholderTextColor="gray"
-                        onChangeText={quantity => setQuantity(quantity)}
-                        defaultValue={quantity}
-                    />
-                </View>
-
+            <View style={[styles.fieldContainer, {padding: 20}]}>
+                <StyledInput type="text" icon = "users" label="Owner" value = "select owner" />
             </View>
-            <View style={styles.fieldContainer}>
-                <View style={styles.textContainer}>
-                    <Text style={styles.unitText}>Units</Text>
-                </View>
-                <View style={styles.inputContainer}>
-                    <TextInput
-                        style={styles.unitInput}
-                        placeholder="Set Unit Abbreviation"
-                        placeholderTextColor="gray"
-                        onChangeText={unit => setUnit(unit)}
-                        defaultValue={unit}
-                    />
-                </View>
-
-            </View>
-        </View>
-        <View style={styles.fieldContainer}>
-            <View style={styles.textContainer}>
-                <Text style={styles.expirationText}>Expiration Date</Text>
-            </View>
-                <View style={styles.inputContainer}>
-                    <TextInput
-                        style={styles.expirationInput}
-                        placeholder="Add Expiration Date"
-                        placeholderTextColor="gray"
-                        onChangeText={expiration => setExpiration(expiration)}
-                        defaultValue={expiration}
-                    />
-                </View>
 
         </View>
         <View style={styles.rowContainer}>
-            <TouchableOpacity
-                style={styles.returnButton}
-                onPress={() => navigation.navigate('FridgeScreen')}
-                >
-                    <Text style ={styles.returnButtonText}>Add to Fridge</Text>
-            </TouchableOpacity>
+            <View style={[styles.fieldContainer, {paddingEnd: 10}]}>
+                <StyledInput type="text" label="Quantity" value = "0" />
+            </View>
+            <View style={[styles.fieldContainer, {paddingStart: 10}]}>
+                <StyledInput type="text" label="Units" value = "set unit abbreviation" />
+            </View>
+
         </View>
+        <View style={styles.rowContainer}>
+            <View style={[styles.fieldContainer]}>
+                <StyledInput type="text" label="Expiration Date" value = "MM/DD/YYYY"/>
+            </View>
+            
+        </View>
+            <StyledButton title="Add Item" color="orange" onPress={()=>alert('item added')} size="lg" />
+        </View>
+
     </KeyboardAvoidingView>
   );
 }

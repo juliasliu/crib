@@ -8,9 +8,7 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       alignItems: 'center',
-      justifyContent: 'center',
       backgroundColor: 'white',
-      alignSelf: 'stretch',
     },
   
     titleContainer: {
@@ -22,15 +20,16 @@ const styles = StyleSheet.create({
     },
 
     rowContainer: {
-        flex: 1,
+        flex:1,
         flexDirection: 'row',
-        alignSelf: 'stretch',
+
     
     },
 
     fieldContainer: {
         flex: 1,
-        alignSelf: 'stretch',
+        paddingStart:20,
+        paddingEnd:20,
     
       },
 
