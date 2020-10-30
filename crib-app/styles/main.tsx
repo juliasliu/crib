@@ -7,11 +7,9 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     padding: 20,
+    backgroundColor: Colors.backgroundWhite,
     borderColor: Colors.veryLightGray,
     borderBottomWidth: 1,
-  },
-  scroll: {
-    backgroundColor: Colors.backgroundWhite,
   },
   row: {
     flexDirection: 'row',
@@ -32,6 +30,10 @@ const styles = StyleSheet.create({
   },
   small: {
     color: Colors.gray,
+  },
+  link: {
+    color: Colors.orange,
+    fontWeight: 'bold',
   },
 
   greenText: {color: Colors.green},
@@ -59,6 +61,14 @@ const styles = StyleSheet.create({
   yellowButton: {
     backgroundColor: Colors.yellow,
     shadowColor: Colors.darkYellow,
+  },
+  facebookButton: {
+    backgroundColor: Colors.facebook,
+    shadowColor: Colors.darkFacebook,
+  },
+  appleButton: {
+    backgroundColor: Colors.apple,
+    shadowColor: Colors.darkApple,
   },
   iconButton: {
     alignItems: 'center',

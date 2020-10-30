@@ -83,6 +83,7 @@ export default function StyledInput({ type, label, value, icon, placeholder, des
 const styles = StyleSheet.create({
   // ...
   inputContainer: {
+    alignSelf: 'stretch',
     marginVertical: 10,
   },
   inputLabel: {

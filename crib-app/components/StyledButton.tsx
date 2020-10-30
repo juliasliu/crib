@@ -36,6 +36,8 @@ export default function StyledButton({ onPress, title, size, color, icon, style 
       color === "green" && mainStyles.greenButton,
       color === "orange" && mainStyles.orangeButton,
       color === "yellow" && mainStyles.yellowButton,
+      color === "apple" && mainStyles.appleButton,
+      color === "facebook" && mainStyles.facebookButton,
       style
     ]}>
     {
@@ -43,7 +45,7 @@ export default function StyledButton({ onPress, title, size, color, icon, style 
       size={ size === "sm" ? 12 : size === "lg" ? 16 :  14 }
       style={[
         styles.appButtonIcon,
-        (color === "green" || color === "orange" || color === "yellow" ) && {
+        (color === "green" || color === "orange" || color === "yellow" || color === "apple" || color === "facebook" ) && {
           color: "#fff",
         },
       ]}>
@@ -53,7 +55,7 @@ export default function StyledButton({ onPress, title, size, color, icon, style 
         styles.appButtonText,
         size === "sm" && { fontSize: 12 },
         size === "lg" && { fontSize: 16 },
-        (color === "green" || color === "orange" || color === "yellow" ) && {
+        (color === "green" || color === "orange" || color === "yellow" || color === "apple" || color === "facebook" ) && {
           color: "#fff",
         },
       ]}>
@@ -66,6 +68,7 @@ export default function StyledButton({ onPress, title, size, color, icon, style 
 const styles = StyleSheet.create({
   // ...
   appButtonContainer: {
+    alignSelf: 'stretch',
     paddingVertical: 10,
     paddingHorizontal: 20,
     display: 'flex',
