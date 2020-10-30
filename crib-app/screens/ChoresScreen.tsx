@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {
-  TouchableOpacity, 
+  TouchableOpacity,
   Dimensions,
   StyleSheet,
   Button,
@@ -18,18 +18,15 @@ import Colors from '../constants/Colors'
 export default function LandingScreen({ navigation }) {
   const pic = require('../assets/images/temp_logo.png');
   return (
-    
+
     <View style={styles.container}>
       <Image source={pic} style={styles.logo} />
       <Text style={styles.title}>Crib</Text>
       <Text style ={styles.text}>insert catch phrase</Text>
       <StyledButton title="Sign In" color="green" onPress={()=>navigation.navigate('SignInScreen')} style={{width:"60%", marginTop: 20}}/>
       <StyledButton title="Register" color="orange" onPress={()=>navigation.navigate('RegisterScreen')} style={{width:"60%", marginTop: 20}}/>
-      
+
 
     </View>
   );
 }
-
-
-
