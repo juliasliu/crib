@@ -32,17 +32,22 @@ export default class ChatScreen extends React.Component {
     message: "",
       messages: [
         {
-          text: "Take out the trash.",
+          text: "Hi!! gm",
           user: {avatar: require('../../assets/images/girl.jpg')},
           floatRight: true,
         },
         {
-          text: "Vacuum the living room.",
+          text: "can u rmb to take out the trashhhh",
           user: {avatar: require('../../assets/images/nature.jpg')},
           floatRight: false,
         },
         {
-          text: "Swiffer the kitchen.",
+          text: "yeah take me out pls",
+          user: {avatar: require('../../assets/images/ramen.jpg')},
+          floatRight: false,
+        },
+        {
+          text: "ok got it",
           user: {avatar: require('../../assets/images/girl.jpg')},
           floatRight: true,
         },
