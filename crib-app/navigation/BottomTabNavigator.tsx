@@ -18,9 +18,6 @@ import ChatScreen from '../screens/Home/ChatScreen';
 import FinancesScreen from '../screens/FinancesScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 
-import SignInScreen from '../screens/SignInScreen';
-import RegisterScreen from '../screens/RegisterScreen';
-
 import { BottomTabParamList, ChoresParamList, FridgeParamList } from '../types';
 
 import HomeButton from '../components/HomeButton';
@@ -154,16 +151,8 @@ function ChoresNavigator() {
       <ChoresStack.Screen
         name="ChoresScreen"
         component={ChoresScreen}
-        options={{ headerTitle: '' }}
+        options={{ headerTitle: 'Chores' }}
       />
-      <ChoresStack.Screen
-        name="SignInScreen"
-        component={SignInScreen}
-        options={{ headerTitle: 'Sign In'}}/>
-      <ChoresStack.Screen
-        name="RegisterScreen"
-        component={RegisterScreen}
-        options={{ headerTitle: 'Register'}}/>
     </ChoresStack.Navigator>
   );
 }

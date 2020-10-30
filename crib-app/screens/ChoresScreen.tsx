@@ -15,7 +15,7 @@ import styles from '../styles/landing';
 import Colors from '../constants/Colors'
 
 
-export default function LandingScreen({ navigation }) {
+export default function ChoresScreen({ navigation }) {
   const pic = require('../assets/images/temp_logo.png');
   return (
 
