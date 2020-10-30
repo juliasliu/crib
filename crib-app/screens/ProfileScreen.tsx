@@ -4,6 +4,7 @@ import {useState} from 'react';
 import { Dimensions } from 'react-native'
 import SegmentedControl from '../components/segmentedControl';
 
+
 var deviceWidth = Dimensions.get('window').width;
 var deviceHeight = Dimensions.get('window').height;
 
@@ -23,6 +24,10 @@ import {
 
 import styles from '../styles/profile';
 
+import mainStyles from '../styles/main';
+import homeStyles from '../styles/home';
+
+import StyledButton from '../components/StyledButton'
 const POINTS_DATA = [
   {
     title: 'Trash',
@@ -88,7 +93,7 @@ export default function ProfileScreen() {
           </View>
 
           <View style={styles.userPointsRow}>
-            <Text style={styles.userPointsText}>${points}</Text>
+    <Text style={styles.userPointsText}>[coin]{points}</Text>
           </View>
         </View>
       </View>
@@ -124,13 +129,8 @@ export default function ProfileScreen() {
       <Text style={styles.infoTitle}>{item.title}</Text>
       <Text style={styles.infoItem}>{item.desc}</Text>
 
-        <TouchableOpacity
-          activeOpacity={0.8}
-          onPress={handlePress}
-          style={styles.choresButton}
-        >
-          <Text style={styles.buttonItem}>Mark Done</Text>
-        </TouchableOpacity>
+      <StyledButton title="Mark Done" color="green" onPress={handlePress} style={styles.choresButton}/>
+      
 
     </View>
     <View style={styles.timeContainer}>
@@ -139,8 +139,16 @@ export default function ProfileScreen() {
   </View>
   )
 
-  function handlePress() {
+  /*  <TouchableOpacity
+          activeOpacity={0.8}
+          onPress={handlePress}
+          style={styles.choresButton}
+        >
+          <Text style={styles.buttonItem}>Mark Done</Text>
+        </TouchableOpacity>*/
 
+  function handlePress() {
+     alert('signed in')
   }
 
   function Points(props) {
@@ -174,7 +182,18 @@ export default function ProfileScreen() {
   return (
     <ScrollView style={[styles.scroll, styles.container]}>
       <View style={[styles.container, styles.profileContainer]}>
+    
+        
         <View style={styles.profileCover}>
+        </View>
+        <View style={[homeStyles.homeGraphicButtons]}>
+          <TouchableOpacity
+            onPress={() => {
+              alert('ughh')
+            }}
+            style={[mainStyles.iconButton, homeStyles.homeGraphicButton]}>
+            <Ionicons name="ios-settings" size={20} style={[mainStyles.icon]}></Ionicons>
+          </TouchableOpacity>
         </View>
         <Header
           name = "Richardd Mao"
