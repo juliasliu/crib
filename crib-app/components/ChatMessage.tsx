@@ -9,49 +9,34 @@ import {
 	TouchableOpacity,
 	  Dimensions,
 } from 'react-native';
-import ProgressBarAnimated from 'react-native-progress-bar-animated';
-import * as WebBrowser from 'expo-web-browser';
-import TabBarIcon from '../components/TabBarIcon';
 
-import Thumbnails from '../constants/Thumbnails';
-
-import allStyles from '../styles/AllScreens';
-import styles from '../styles/ProfileScreen';
+import mainStyles from '../styles/main';
+import styles from '../styles/chat';
 
 class ChatMessage extends React.Component {
 
 	showPickedImage() {
-		const { avatar_url } = this.props.user;
+		const { avatar } = this.props.user;
 
-		if (avatar_url != null && avatar_url != undefined) {
-			return (
-					<Image
-					source={{ uri: avatar_url }}
-					style={[ styles.profilePicture, styles.chatMessagePicture ] }
-					/>
-			);
-		} else {
-			return (
-					<Image
-					source={ Thumbnails.avatar }
-					style={[ styles.profilePicture, styles.chatMessagePicture ] }
-					/>
-			);
-		}
+		return (
+      <Image
+  		source={ avatar }
+  		style={[ styles.profilePicture, styles.chatMessagePicture ] }
+  		/>
+    )
 	}
 
 	render() {
 
 		let navigateToProfile = () => {
 			console.log("hi")
-			this.props.navigation.push("Profile", {user_id: this.props.user.id})
 		}
 
 		return (
-				<View style={allStyles.containerNoPadding}>
+				<View style={mainStyles.containerNoPadding}>
 				{
 					// if you, float right
-					this.props.message.user_id == this.props.logged_in_user_id ? (
+					this.props.floatRight ? (
 						<View style={[styles.chatMessageContainer, styles.chatMessageContainerRight]}>
 							<View style={[styles.profilePictureContainer, styles.chatMessagePictureContainer]}>
 								{ this.showPickedImage() }

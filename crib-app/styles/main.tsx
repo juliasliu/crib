@@ -197,18 +197,17 @@ const styles = StyleSheet.create({
    color: Colors.gray,
  },
 
-
  // Inputs
  input: {
-		backgroundColor: '#fff',
+		backgroundColor: Colors.white,
 		height: 45,
 		marginVertical: 10,
 		padding: 10,
 		fontSize: 14,
-		borderRadius: 20,
-		borderColor: "#e1e7ed",
+		borderRadius: 10,
+		borderColor: Colors.veryLightGray,
 		borderWidth: 1,
-		shadowColor: "#e1e7ed",
+		shadowColor: Colors.veryLightGray,
 		shadowOffset: {
 			width: 0,
 			height: 5,
@@ -217,20 +216,8 @@ const styles = StyleSheet.create({
 		shadowRadius: 0,
 		elevation: 1,
 	},
- searchInput: {
- 		display: 'flex',
- 		flexDirection: 'row',
- 		alignItems: 'center',
- 		shadowColor: 'transparent',
- 		padding: 10,
- 	},
-  searchInputText: {
+  inputText: {
 		width: '100%',
-	},
-  buttonIcon: {
-		color: '#515d6e',
-		paddingHorizontal: 5,
-		fontSize: 18,
 	},
 });
 
