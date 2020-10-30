@@ -32,7 +32,13 @@ export default class App extends React.Component {
     }
 
     register = () => {
-      this.props.users.register(this.state.username, this.state.name, this.state.email, this.state.password, this.state.house_code);
+      this.props.users.register(this.state.username, this.state.name, this.state.email, this.state.password, this.state.house_code)
+      .then(res => {
+  			console.log("yay registered! " + res)
+  		})
+  		.catch((errors) => {
+  			console.log("o no " + errors)
+  		})
     }
 
     updateUsername = (username) => {

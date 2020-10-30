@@ -21,7 +21,6 @@ class Users {
 				password: password,
 		}
     console.log(user);
-    return;
 
 		return new Promise(function(resolve, reject) {
 			axios.post(API_ROOT + '/login', {user}, {withCredentials: true})
@@ -76,7 +75,6 @@ class Users {
 				house_code: house_code,
 		}
     console.log(user);
-    return;
 
 		return new Promise(function(resolve, reject) {
 			// validate password confirmation
@@ -127,6 +125,7 @@ class Users {
 		this.errors = errors
 		this.success = null;
 		this.busy = false
+    console.log(errors);
 	}
 
 	handleLogin(user) {

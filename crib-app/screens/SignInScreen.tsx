@@ -28,7 +28,13 @@ export default class App extends React.Component {
     }
 
     signIn = () => {
-      this.props.users.login(null, this.state.email, this.state.password);
+      this.props.users.login(null, this.state.email, this.state.password)
+      .then(res => {
+  			console.log("yay signed in! " + res)
+  		})
+  		.catch((errors) => {
+  			console.log("o no " + errors)
+  		})
     }
 
     updateEmail = (email) => {

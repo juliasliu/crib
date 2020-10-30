@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  
   default_url_options :host => 'http://crib-server.herokuapp.com'
 
   resources :houses
