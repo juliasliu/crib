@@ -7,8 +7,10 @@ const styles = StyleSheet.create({
   },
   scroll: {
     backgroundColor:'#fff',
+    height:"50%",
   },
   profileContainer: {
+    flex:1,
     backgroundColor: '#fff',
     alignItems: 'center',
   },

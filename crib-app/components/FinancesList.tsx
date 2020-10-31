@@ -18,6 +18,7 @@ import {
   Button,
   TouchableOpacity,
 } from 'react-native';
+import Colors from '../constants/Colors';
 
 
 class FinancesList extends Component {
@@ -36,16 +37,19 @@ class FinancesList extends Component {
         name: 'Kobe',
         pts: "100",
         time: '8 mins ago',
+        net: 5.00,
       },
       {
         name: 'Robin',
         pts: "50",
         time: '2 hours ago',
+        net: 10.00,
       },
       {
         name: 'Julia',
         pts: "30",
         time: '10 weeks ago',
+        net: -15.00,
       },]
       const pic = require('../assets/images/ramen.jpg');
 
@@ -60,6 +64,7 @@ class FinancesList extends Component {
                 onTextPress={this.handleShowDetails}
                 item={item}
                 pic={pic}
+
               />
             )}
           />
@@ -72,9 +77,11 @@ class FinancesList extends Component {
   
   const styles = StyleSheet.create({
     listContainer: {
-        flex: 1,
-        paddingTop: 0,
-        width: '100%',
+      flex: 1,
+      paddingTop: 0,
+      width: '100%',
+      backgroundColor: Colors.backgroundWhite,
+      borderBottomWidth:0
        },
     item: {
       padding: 10,

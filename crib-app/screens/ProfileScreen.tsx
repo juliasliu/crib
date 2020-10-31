@@ -2,7 +2,9 @@ import * as React from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import {useState} from 'react';
 import { Dimensions } from 'react-native'
+
 import SegmentedControl from '../components/segmentedControl';
+import Colors from '../constants/Colors';
 
 
 var deviceWidth = Dimensions.get('window').width;
@@ -23,9 +25,6 @@ import {
 } from 'react-native';
 
 import styles from '../styles/profile';
-
-import mainStyles from '../styles/main';
-import homeStyles from '../styles/home';
 
 import StyledButton from '../components/StyledButton'
 const POINTS_DATA = [
@@ -93,7 +92,7 @@ export default function ProfileScreen() {
           </View>
 
           <View style={styles.userPointsRow}>
-    <Text style={styles.userPointsText}>[coin]{points}</Text>
+            <Text style={styles.userPointsText}>[coin]{points}</Text>
           </View>
         </View>
       </View>
@@ -139,14 +138,6 @@ export default function ProfileScreen() {
   </View>
   )
 
-  /*  <TouchableOpacity
-          activeOpacity={0.8}
-          onPress={handlePress}
-          style={styles.choresButton}
-        >
-          <Text style={styles.buttonItem}>Mark Done</Text>
-        </TouchableOpacity>*/
-
   function handlePress() {
      alert('signed in')
   }
@@ -178,23 +169,15 @@ export default function ProfileScreen() {
     );
   }
 
-
   return (
     <ScrollView style={[styles.scroll, styles.container]}>
-      <View style={[styles.container, styles.profileContainer]}>
-    
+      <View style={{backgroundColor: Colors.green, height: deviceHeight, position: 'absolute', top: -deviceHeight, left: 0, right: 0}} />
+      <View style={[styles.profileContainer]}>
+
         
         <View style={styles.profileCover}>
         </View>
-        <View style={[homeStyles.homeGraphicButtons]}>
-          <TouchableOpacity
-            onPress={() => {
-              alert('ughh')
-            }}
-            style={[mainStyles.iconButton, homeStyles.homeGraphicButton]}>
-            <Ionicons name="ios-settings" size={20} style={[mainStyles.icon]}></Ionicons>
-          </TouchableOpacity>
-        </View>
+       
         <Header
           name = "Richardd Mao"
           points = "100"

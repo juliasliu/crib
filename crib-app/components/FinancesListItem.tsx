@@ -12,10 +12,13 @@ import {
 import mainStyles from '../styles/main';
 import Colors from '../constants/Colors';
 
+import StyledButton from '../components/StyledButton'
+
 interface Props {
   onTextPress: any
   item: any
   pic: any
+  net:any
 }
 let TEST_DATA =  [{
   name: 'Kobe',
@@ -39,11 +42,13 @@ class FinancesListItem extends React.Component<Props, {collapse:boolean}> {
       collapse: true
     };
   }
+  handlePress = () => {
+    alert('pressed!')
+  };
 
   handleTextPress = () => {
     this.setState({collapse: !this.state.collapse})
   };
-  //<Text onPress={this.handleTextPress}>{this.props.item.title}</Text>
 
   render() {
     return (
@@ -53,13 +58,31 @@ class FinancesListItem extends React.Component<Props, {collapse:boolean}> {
           style={styles.itemContainer}
           onPress={this.handleTextPress}
         >
-        <View style={styles.titleRow}>
-            <Image source={this.props.pic} style={styles.iconContainer} />
-              <Text style={styles.itemTitle}>
-                {this.props.item.name}
-              </Text>
-        </View>
 
+        <View style={mainStyles.iconContainer}>
+          <Image
+            style={styles.iconContainer}
+            source={this.props.pic}
+          />
+        </View>
+        <View style={[mainStyles.infoContainer]}>
+          <Text style={styles.itemTitle}>{this.props.item.name}</Text>
+          <Text style={styles.itemStyle}>Net owed: 
+          {
+            this.props.item.net >= 0 ?
+              
+              <Text style={[styles.itemStyle, {color:'green'}]}> ${this.props.item.net} </Text>
+            : 
+              <Text style={[styles.itemStyle, {color:'red'}]}> -${-1*this.props.item.net}</Text>
+          }
+          </Text>
+          
+        </View>
+        <View style={[mainStyles.timeContainer, {flexDirection:'column',marginRight:5,paddingTop:0,paddingBottom:0}]}>
+              <StyledButton title="Pay" color="green" onPress={this.handlePress} style={styles.markButton}/>
+              <StyledButton title="Request" color="orange" onPress={this.handlePress} style={styles.markButton}/>
+        </View>
+        
         </TouchableOpacity>
           {
             !this.state.collapse ? 
@@ -111,11 +134,9 @@ class FinancesListItem extends React.Component<Props, {collapse:boolean}> {
     },
     financeItemContainer: {
       flex: 1,
-      borderColor: '#f1f1f1',
-      borderBottomWidth: 1,
-      marginLeft: 0,
-      fontSize: 26
-      
+      borderColor: Colors.veryLightGray,
+      borderBottomWidth: 0,
+      paddingHorizontal: 20,
     },
 
     itemContainer: {
@@ -140,7 +161,7 @@ class FinancesListItem extends React.Component<Props, {collapse:boolean}> {
       borderRadius:20,
     },
 
-    titleRow: {
+    listRow: {
       flexDirection: 'row',
       marginLeft: 0,
       marginRight: 0,
@@ -151,18 +172,29 @@ class FinancesListItem extends React.Component<Props, {collapse:boolean}> {
       flex: 1,
       paddingLeft: 5,
     },
+    markButton: {
+      flex:0, //fix??? hard coded button width
+      width:100,
+      marginBottom:10,
+      borderRadius: 10, //how rounded it is
+      paddingVertical: 5,
+      paddingHorizontal: 0,
+      alignItems:'center',
+    },
+
     itemStyle: {
-      fontSize: 18,
+      color: Colors.gray,
+      fontSize: 14,
     },
     itemTitle: {
       color: '#1cad61',
       fontSize: 25,
       fontWeight: 'bold',
-      marginLeft:10,
+      marginLeft:0,
      },
     iconContainer: { //Can be used as a view conatiner or styling the image itself
       alignItems: 'center',
-      borderColor: '#5DB075',
+      borderColor: Colors.green,
       borderRadius: 10,
       borderWidth: 1,
       justifyContent: 'center',
@@ -183,13 +215,14 @@ class FinancesListItem extends React.Component<Props, {collapse:boolean}> {
       flex: 1,
       paddingLeft: 0,
       paddingRight: 0,
+      flexDirection: "column",
       },
     
     timeContainer: {
       flex:1,
       paddingLeft: 5,
       paddingRight: 5,
-      flexDirection: "row",
+      flexDirection: "column",
       alignItems: "baseline",
       justifyContent: "flex-end"
     },
