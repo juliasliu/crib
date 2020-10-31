@@ -80,6 +80,7 @@ class Users {
 			// validate password confirmation
 			axios.post(API_ROOT + '/users', {user}, {withCredentials: true})
 			.then(response => {
+        console.log(response.data.user);
 				if (response.data.status === 'created') {
 					that.handleSuccess()
 					that.handleLogin(response.data.user)
