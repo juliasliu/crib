@@ -17,6 +17,7 @@ import ChatScreen from '../screens/Home/ChatScreen';
 
 import FinancesScreen from '../screens/FinancesScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import SettingsScreen from '../screens/SettingsScreen';
 
 import { BottomTabParamList, ChoresParamList, FridgeParamList } from '../types';
 
@@ -262,7 +263,16 @@ function ProfileNavigator() {
       <ProfileStack.Screen
         name="ProfileScreen"
         component={ProfileScreen}
-        options={{
+        options={({navigation}) => ({
+          headerRight: () => (
+            <Ionicons
+              size={30}
+              onPress={() => navigation.navigate('SettingsScreen')}
+              name="ios-settings"
+              color={Colors.white}
+              style={{paddingHorizontal: 20}}
+            />
+          ),
           title: 'Profile',
            headerStyle: {
              backgroundColor: Colors.green,
@@ -271,7 +281,13 @@ function ProfileNavigator() {
              borderBottomWidth: 0,
            },
            headerTintColor: '#fff',
-       }}
+       })}
+      />
+      <ProfileStack.Screen
+        name="SettingsScreen"
+        component={SettingsScreen}
+        options={{ headerTitle: 'Settings',
+        headerTintColor: Colors.darkGray, }}
       />
     </ProfileStack.Navigator>
   );
