@@ -20,7 +20,7 @@ export default function InventoryAddScreen({ navigation }) {
         <KeyboardAvoidingView behavior={Platform.OS == "ios" ? "padding" : "height"} style={styles.container}>
         <View style={[mainStyles.contentContainer, {alignSelf:'stretch'}]}>
           <Text style={mainStyles.title}>Add Item</Text>
-          <Text style={mainStyles.subtitle}>Item item to the communal shopping list</Text>
+          <Text style={mainStyles.subtitle}>Add item to the communal shopping list</Text>
         </View>
         <View style = {[styles.container,{flex:1}]}>
         <View style={styles.rowContainer}>
