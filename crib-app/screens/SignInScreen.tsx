@@ -8,6 +8,8 @@ import {
   Image,
   ScrollView
 } from 'react-native';
+import { observer, inject } from 'mobx-react'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
@@ -18,28 +20,46 @@ import Colors from '../constants/Colors'
 import { TextInput } from 'react-native-gesture-handler';
 import mainStyles from '../styles/main';
 
-
+@inject('users') @observer
 export default class App extends React.Component {
-    state={
-        email:"",
-        password:"",
+    state = {
+        email: "",
+        password: "",
     }
-    render(){
+
+    signIn = () => {
+      this.props.users.login(null, this.state.email, this.state.password)
+      .then(res => {
+  			console.log("yay signed in! " + res)
+  		})
+  		.catch((errors) => {
+  			console.log("o no " + errors)
+  		})
+    }
+
+    updateEmail = (email) => {
+      this.setState({email});
+    }
+    updatePassword = (password) => {
+      this.setState({password});
+    }
+
+    render() {
       return (
-        <ScrollView showsVerticalScrollIndicator={false}>
+        <KeyboardAwareScrollView showsVerticalScrollIndicator={false}>
           <View style={[mainStyles.container, styles.container]}>
             <View style={[styles.landingContainer]}>
               <Text style={[styles.title, {marginVertical: 20}]}>Sign In</Text>
 
-              <StyledInput type="text" label="Email" icon="envelope" placeholder="Please enter your email address"/>
-              <StyledInput type="password" label="Password" icon="lock" placeholder="Please enter your password"/>
+              <StyledInput type="text" label="Email" icon="envelope" handleValue={this.updateEmail.bind(this)} placeholder="Please enter your email address"/>
+              <StyledInput type="password" label="Password" icon="lock" handleValue={this.updatePassword.bind(this)} placeholder="Please enter your password"/>
 
-              <StyledButton title="Sign In" color="green" onPress={()=>alert('registered!')} style={{marginVertical: 10}}/>
+              <StyledButton title="Sign In" color="green" onPress={this.signIn.bind(this)} style={{marginVertical: 10}}/>
               <StyledButton title="Back" color="white" onPress={()=>this.props.navigation.navigate('Landing')} style={{marginVertical: 10}}/>
 
             </View>
         </View>
-      </ScrollView>
+      </KeyboardAwareScrollView>
       );
     }
 }

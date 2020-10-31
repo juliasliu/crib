@@ -7,7 +7,7 @@ import useColorScheme from './hooks/useColorScheme';
 import Navigation from './navigation';
 
 import { Provider } from 'mobx-react';
-import {users} from './stores/users';
+import users from './stores/users';
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
@@ -17,12 +17,12 @@ export default function App() {
     return null;
   } else {
     return (
-      <SafeAreaProvider>
-        <Provider users={users}>
-          <Navigation colorScheme={colorScheme} />
-        </Provider>
-        <StatusBar />
-      </SafeAreaProvider>
+      <Provider users={users}>
+        <SafeAreaProvider>
+            <Navigation colorScheme={colorScheme} />
+          <StatusBar />
+        </SafeAreaProvider>
+      </Provider>
     );
   }
 }
