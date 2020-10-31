@@ -16,9 +16,10 @@ export default function InventoryAddScreen({ navigation }) {
 
     return (
     <KeyboardAvoidingView behavior={Platform.OS == "ios" ? "padding" : "height"} style={styles.container}>
-        <View style = {{flex:0.1, backgroundColor:Colors.green, alignSelf:'stretch', marginBottom:20, alignItems:'flex-start', paddingTop:20}}>
-            <Text style={styles.titleText}>Add Item to Inventory</Text>
-        </View> 
+        <View style={[mainStyles.contentContainer, {alignSelf:'stretch'}]}>
+          <Text style={mainStyles.title}>Add Item</Text>
+          <Text style={mainStyles.subtitle}>Item item to your fridge</Text>
+        </View>
         <View style = {[styles.container,{flex:1}]}>
         <View style={styles.rowContainer}>
             <View style={[styles.fieldContainer, {paddingStart: 20,}]}>
